@@ -1,0 +1,11 @@
+{
+  "name": "@roeibajayo/claude-tools",
+  "version": "1.0.0",
+  "description": "Claude tools by Roei Bajayo",
+  "scripts": {
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "prettier": "3.6.2"
+  }
+}
