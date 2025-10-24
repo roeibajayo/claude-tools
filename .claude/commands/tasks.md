@@ -13,24 +13,20 @@ You **MUST** consider the user input before proceeding (if not empty).
 ## Outline
 
 1. **Execute task generation workflow**:
+
    - Generate tasks organized by user story (see Task Generation Rules below)
    - Generate dependency graph showing user story completion order
-   - Create parallel execution examples per user story
    - Validate task completeness (each user story has all needed tasks, independently testable)
 
 2. **Generate tasks.md**: Use `.claude/templates/tasks.md` as structure, fill with:
    - Phase 1: Setup tasks (project initialization)
    - Phase 2: Foundational tasks (blocking prerequisites for all user stories)
    - Phase 3+: One phase per user story
-   - Each phase includes: story goal, independent test criteria, tests (if requested), implementation tasks
+   - Each phase includes: story goal, tests (if requested), implementation tasks
    - Final Phase: Polish & cross-cutting concerns
    - All tasks must follow the strict checklist format (see Task Generation Rules below)
    - Clear file paths for each task
    - Dependencies section showing story completion order
-   - Parallel execution examples per story
-   - Implementation strategy section (MVP first, incremental delivery)
-
-Context for task generation: {ARGS}
 
 The tasks.md should be immediately executable - each task must be specific enough that an LLM can complete it without additional context.
 
@@ -45,52 +41,61 @@ The tasks.md should be immediately executable - each task must be specific enoug
 Every task MUST strictly follow this format:
 
 ```text
-- [ ] [TaskID] [P?] [Story?] Description with file path
+- [ ] Description with file path
 ```
 
 **Format Components**:
 
 1. **Checkbox**: ALWAYS start with `- [ ]` (markdown checkbox)
-2. **Task ID**: Sequential number (T001, T002, T003...) in execution order
-3. **[P] marker**: Include ONLY if task is parallelizable (different files, no dependencies on incomplete tasks)
-4. **[Story] label**: REQUIRED for user story phase tasks only
-   - Format: [US1], [US2], [US3], etc. (maps to user stories from spec.md)
+2. **[Story] label**: REQUIRED for user story phase tasks only
    - Setup phase: NO story label
    - Foundational phase: NO story label
    - User Story phases: MUST have story label
    - Polish phase: NO story label
-5. **Description**: Clear action with exact file path
+3. **Description**: Clear action with exact file path
+   - File paths should use forward slashes `/` even on Windows
+   - File paths should be surrounded by backticks `` ` `` for clarity
 
 **Examples**:
 
-- ✅ CORRECT: `- [ ] T001 Create project structure per implementation plan`
-- ✅ CORRECT: `- [ ] T005 [P] Implement authentication middleware in src/middleware/auth.py`
-- ✅ CORRECT: `- [ ] T012 [P] [US1] Create User model in src/models/user.py`
-- ✅ CORRECT: `- [ ] T014 [US1] Implement UserService in src/services/user_service.py`
-- ❌ WRONG: `- [ ] Create User model` (missing ID and Story label)
-- ❌ WRONG: `T001 [US1] Create model` (missing checkbox)
-- ❌ WRONG: `- [ ] [US1] Create User model` (missing Task ID)
-- ❌ WRONG: `- [ ] T001 [US1] Create model` (missing file path)
+- ✅ CORRECT: `- [ ] Create project structure per implementation plan`
+- ✅ CORRECT: `` - [ ] Implement authentication middleware in `src/middleware/auth.py`  ``
+- ✅ CORRECT: `` - [ ] Create User model in `src/models/user.py`  ``
+- ✅ CORRECT: `` - [ ] Implement UserService in `src/services/user_service.py`  ``
+- ❌ WRONG: `Create model` (missing checkbox)
+- ❌ WRONG: `- [ ] Create model` (missing file path)
+- ❌ WRONG: `- [ ] Create User model in src/models/user.py` (missing backticks around file path)
 
 ### Task Organization
 
 1. **From User Stories** - PRIMARY ORGANIZATION:
+
    - Each user story (P1, P2, P3...) gets its own phase
-   - Map all related components to their story:
-     - Models needed for that story
-     - Services needed for that story
-     - Endpoints/UI needed for that story
-     - If tests requested: Tests specific to that story
+   - Within each story phase, group tasks by component type:
+     - **Tests** (if requested): Contract tests, integration tests
+     - **Models**: Database models, entities
+     - **DTOs**: Request/Response data transfer objects
+     - **Interfaces**: Service interfaces, contracts
+     - **Services**: Business logic implementation
+     - **Endpoints**: API endpoints, controllers
+     - **Pages**: Full page components (Frontend)
+     - **Components**: Reusable UI components (Frontend)
+     - **Hooks**: Custom React hooks (Frontend)
+     - **Utilities**: Helper functions, shared code
    - Mark story dependencies (most stories should be independent)
 
 2. **From Contracts**:
+
    - Map each contract/endpoint → to the user story it serves
-   - If tests requested: Each contract → contract test task [P] before implementation in that story's phase
+   - Place endpoint tasks in the **Endpoints** section of that story's phase
+   - If tests requested: Place contract tests in **Tests** section before implementation
 
 3. **From Data Model**:
+
    - Map each entity to the user story(ies) that need it
+   - Place entity tasks in the **Models** section of that story's phase
    - If entity serves multiple stories: Put in earliest story or Setup phase
-   - Relationships → service layer tasks in appropriate story phase
+   - DTOs go in the **DTOs** section
 
 4. **From Setup/Infrastructure**:
    - Shared infrastructure → Setup phase (Phase 1)
@@ -102,6 +107,15 @@ Every task MUST strictly follow this format:
 - **Phase 1**: Setup (project initialization)
 - **Phase 2**: Foundational (blocking prerequisites - MUST complete before user stories)
 - **Phase 3+**: User Stories in priority order (P1, P2, P3...)
-  - Within each story: Tests (if requested) → Models → Services → Endpoints → Integration
+  - Within each story, tasks grouped by component type:
+    - Tests (if requested) - write first, ensure they fail
+    - Models - data layer
+    - DTOs - API contracts
+    - Interfaces - abstractions
+    - Services - business logic
+    - Endpoints - API layer
+    - Pages - full page views (Frontend)
+    - Components - reusable UI (Frontend)
+    - Hooks - custom React hooks (Frontend)
   - Each phase should be a complete, independently testable increment
 - **Final Phase**: Polish & Cross-Cutting Concerns
