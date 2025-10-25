@@ -2,6 +2,8 @@
 description: Generate an actionable, dependency-ordered tasks.md for the feature based on available design artifacts.
 ---
 
+# Tasks generation
+
 ## User Input
 
 ```text
@@ -13,7 +15,6 @@ You **MUST** consider the user input before proceeding (if not empty).
 ## Outline
 
 1. **Execute task generation workflow**:
-
    - Generate tasks organized by user story (see Task Generation Rules below)
    - Generate dependency graph showing user story completion order
    - Validate task completeness (each user story has all needed tasks, independently testable)
@@ -59,9 +60,9 @@ Every task MUST strictly follow this format:
 **Examples**:
 
 - ✅ CORRECT: `- [ ] Create project structure per implementation plan`
-- ✅ CORRECT: `` - [ ] Implement authentication middleware in `src/middleware/auth.py`  ``
-- ✅ CORRECT: `` - [ ] Create User model in `src/models/user.py`  ``
-- ✅ CORRECT: `` - [ ] Implement UserService in `src/services/user_service.py`  ``
+- ✅ CORRECT: ``- [ ] Implement authentication middleware in `src/middleware/auth.py` ``
+- ✅ CORRECT: ``- [ ] Create User model in `src/models/user.py` ``
+- ✅ CORRECT: ``- [ ] Implement UserService in `src/services/user_service.py` ``
 - ❌ WRONG: `Create model` (missing checkbox)
 - ❌ WRONG: `- [ ] Create model` (missing file path)
 - ❌ WRONG: `- [ ] Create User model in src/models/user.py` (missing backticks around file path)
@@ -69,7 +70,6 @@ Every task MUST strictly follow this format:
 ### Task Organization
 
 1. **From User Stories** - PRIMARY ORGANIZATION:
-
    - Each user story (P1, P2, P3...) gets its own phase
    - Within each story phase, group tasks by component type:
      - **Tests** (if requested): Contract tests, integration tests
@@ -85,13 +85,11 @@ Every task MUST strictly follow this format:
    - Mark story dependencies (most stories should be independent)
 
 2. **From Contracts**:
-
    - Map each contract/endpoint → to the user story it serves
    - Place endpoint tasks in the **Endpoints** section of that story's phase
    - If tests requested: Place contract tests in **Tests** section before implementation
 
 3. **From Data Model**:
-
    - Map each entity to the user story(ies) that need it
    - Place entity tasks in the **Models** section of that story's phase
    - If entity serves multiple stories: Put in earliest story or Setup phase

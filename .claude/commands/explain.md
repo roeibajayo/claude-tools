@@ -2,7 +2,7 @@
 description: Explain the user's request before proceeding.
 ---
 
-# Explain Command
+# Explanation of User Request
 
 ## User Input
 
@@ -30,7 +30,7 @@ STRICTLY READ-ONLY: Do not modify any files.
 - Be concise, clear, short and to the point.
 - Highlight any specific requirements or constraints mentioned by the user.
 - Include any relevant context that helps clarify the request, including Components, Pages, Services or Features involved.
-- DO NOT include technical details like Models, DTOs, Interfaces, Repositories, Endpoints etc.
+- DO NOT include technical details like Files, Models, DTOs, Interfaces, Repositories, Endpoints etc.
 - Suggest improvements to the user's request if applicable.
 - Use context, industry standards, and common patterns to fill gaps.
 - DO NOT include implementation details.
