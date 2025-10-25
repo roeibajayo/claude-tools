@@ -34,12 +34,15 @@ description: Task list template for feature implementation.
 - [ ] [Service] in `src/api-logic/Services/[Service].cs`
   - Implement [Interface] <!-- if applicable -->
   - [ReturnType] [Method]([ParamType] [param]) <!-- repeat as needed -->
+  - Calls [Service].[Method]([param]) <!-- if applicable, repeat as needed -->
 
 ### Endpoints
 
 - [ ] [Action][Resource]Endpoint in `src/api/Endpoints/[Resource]/[Action][Resource]Endpoint.cs`
+  - Route: [HTTPMethod] `[resource-path]`
   - Request: [RequestDto] <!-- if no DTO - replace RequestDto with request properties -->
   - Response: [ResponseDto] <!-- if no DTO - replace ResponseDto with response properties -->
+  - Calls [Service].[Method]([param]) <!-- if applicable, repeat as needed -->
 
 ### Models
 
@@ -49,6 +52,8 @@ description: Task list template for feature implementation.
 ### Pages
 
 - [ ] [Page] in `src/client/src/pages/[Section]/[Page].tsx`
+  - Route: `/[route-path]`
+  - Components: [Component1], [Component2]
 
 ### Components
 
@@ -57,7 +62,7 @@ description: Task list template for feature implementation.
 ### Hooks
 
 - [ ] use[Feature] in `src/client/src/hooks/use[Feature].ts`
-  - returns { [state1], [method1] }
+  - Returns { [state1], [method1] }
 
 ### Tests
 
@@ -72,18 +77,9 @@ description: Task list template for feature implementation.
 
 ## Phase N: Polish
 
-- [ ] Code cleanup and refactoring
-- [ ] Remove unused code
-- [ ] Remove code duplications
-- [ ] Performance optimization
-- [ ] Security hardening
+- [ ] Search for existing components/utilities/hooks/endpoints/services etc - if similar functionality exists, refactor to reuse
+- [ ] Code cleanup and refactoring: Remove unused code, Remove code duplications,Performance optimization, Security hardening
 - [ ] Validate all tests pass
 - [ ] Full backend build: `dotnet build`
 - [ ] Full frontend checks: `cd src/client && npx tsc --noEmit --skipLibCheck --project tsconfig.app.json && npx eslint .`
 - [ ] Format files: `cd src/client && npx prettier <files> --write`
-
----
-
-## Execution Order
-
-**Phase dependencies**: User Stories (P1 → P2 → P3) → Polish
