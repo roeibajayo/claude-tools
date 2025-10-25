@@ -55,6 +55,8 @@ don't ask about these:
 - Output containing checklists or task lists.
 - Output containing current state analysis or assumptions about existing systems.
 - Output containing explanations of why the request matters.
+- Output containing code, methods, classes, variables, or technical terms.
+- Output containing sections such as "Why This Matters", "Current State", "What's Missing", "Components Involved" or "Constraints & Context", etc.
 
 ### Bad outputs style
 
@@ -62,48 +64,6 @@ don't ask about these:
 - "Database can handle 1000 TPS" (implementation detail, use user-facing metric).
 - "React components render efficiently" (framework-specific).
 - "Redis cache hit rate above 80%" (technology-specific).
-
-### Bad outputs sections
-
-<bad-example-1>
-
-## Why This Matters (contains why this matters)
-
-This feature enables users to ...
-
-</bad-example-1>
-
-<bad-example-2>
-
-## Current State (contains current state analysis)
-
-The `Git Changes` tab ...
-
-</bad-example-2>
-
-<bad-example-3>
-
-## What's Missing (contains current state analysis)
-
-No button for ...
-
-</bad-example-3>
-
-<bad-example-4>
-
-## Constraints & Context (contains implementation details)
-
-Components Involved are ...
-
-</bad-example-4>
-
-<bad-example-5>
-
-## Key Components Affected (contains implementation details)
-
-- Button component in ...
-
-</bad-example-5>
 
 ## Good Example
 
