@@ -14,37 +14,35 @@ You **MUST** consider the user input before proceeding (if not empty).
 
 ## Outline
 
-1. Load and analyze the implementation context:
-   - **REQUIRED**: Read tasks.md for the complete task list and execution plan
+1. Read tasks.md and extract:
+   - **REQUIRED**: Complete task list and execution plan
+   - **Task phases** and sequential ordering
+   - **Task details**: description, file paths, success criteria
 
-2. Parse tasks.md structure and extract:
-   - **Task phases**: Setup, Tests, Core, Integration, Polish
-   - **Task details**: description, file paths
-   - **Execution flow**: Order and dependency requirements
+2. Execute implementation in phase order:
+   - Complete each phase before proceeding to the next
+   - Within each phase, follow defined task sequence
+   - Execute test tasks before corresponding implementation tasks (TDD)
+   - Mark completed tasks as `[X]` in tasks.md after finishing each one
 
-3. Execute implementation following the task plan:
-   - **Phase-by-phase execution**: Complete each phase before moving to the next
-   - **Follow TDD approach**: Execute test tasks before their corresponding implementation tasks
-   - **Validation checkpoints**: Verify each phase completion before proceeding
+3. Execution priority order:
+   - **Setup**: Initialize project structure, dependencies, configuration
+   - **Tests**: Write test contracts and integration scenarios
+   - **Core**: Implement models, services, CLI commands, endpoints
+   - **Integration**: Database connections, middleware, logging, external services
+   - **Validation**: Unit tests, performance optimization, documentation
 
-4. Implementation execution rules:
-   - **Setup first**: Initialize project structure, dependencies, configuration
-   - **Tests before code**: If you need to write tests for contracts, entities, and integration scenarios
-   - **Core development**: Implement models, services, CLI commands, endpoints
-   - **Integration work**: Database connections, middleware, logging, external services
-   - **Polish and validation**: Unit tests, performance optimization, documentation
-
-5. Progress tracking and error handling:
-   - Report progress after each completed task
-   - Provide clear error messages with context for debugging
-   - Suggest next steps if implementation cannot proceed
+4. Progress tracking:
+   - Do NOT report any progress, like: "Let me ..", "Now I will ...", etc.
+   - Do NOT report after each task completion
+   - Only report errors with context and next steps if blocked
+   - Report final status with summary of all completed work
    - **IMPORTANT** For completed tasks, make sure to mark the task off as [X] in the tasks file.
 
-6. Completion validation:
-   - Verify all required tasks are completed
-   - Check that implemented features match the original specification
-   - Validate that tests pass and coverage meets requirements
-   - Confirm the implementation follows the technical plan
-   - Report final status with summary of completed work
+5. Completion criteria:
+   - All required tasks marked `[X]`
+   - Implemented features match original specification
+   - All tests pass
+   - Implementation follows technical plan
 
-Note: This command assumes a complete task breakdown exists in tasks.md. If tasks are incomplete or missing, suggest running `/tasks` first to regenerate the task list.
+**Prerequisite**: tasks.md must exist with complete task breakdown. If missing or incomplete, suggest running `/tasks` first.
