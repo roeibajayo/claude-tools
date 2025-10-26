@@ -36,6 +36,7 @@ STRICTLY READ-ONLY: Do not modify any files.
 - DO NOT include implementation details.
 - DO NOT include current state information.
 - Fix user typographical or grammatical errors.
+- ALWAYS output in English only, no matter the input language.
 
 ## Examples of reasonable defaults
 

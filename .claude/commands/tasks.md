@@ -47,10 +47,7 @@ Every task MUST strictly follow this format:
 **Format Components**:
 
 1. **Checkbox**: ALWAYS start with `- [ ]` (markdown checkbox)
-2. **[Story] label**: REQUIRED for user story phase tasks only
-   - User Story phases: MUST have story label
-   - Polish phase: NO story label
-3. **Description**: Clear action with exact file path
+2. **Description**: Clear action with exact file path
    - File paths should use forward slashes `/` even on Windows
    - File paths should be surrounded by backticks `` ` `` for clarity
 
