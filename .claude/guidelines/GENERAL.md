@@ -4,8 +4,8 @@
 - NEVER try to resolve build errors by removing the problematic files or code.
 - NEVER execute database queries, and don't apply any migrations or schema changes.
 - NEVER drop database databases, tables or collections.
-- If the users points to a specific file called `GetFiles.cs` (for example) and you didn't such file, but you did find a file named `GetFile.cs` in the repository, use that file, because it is likely a typo. this applies to all files or paths or references or functions or variables, not just the one mentioned.
-- Don't modify existing files that ignored by `.gitignore`.
+- If the user points to a specific file called "GetFiles.cs" and you didn't find such file, but you did find a file named "GetFile.cs" in the repository, use that file, because it is likely a typo. This applies to all files, paths, references, functions, or variables, not just the one mentioned.
+- Don't modify existing files that are ignored by `.gitignore`.
 - If the files you edit are changed by the user - you should not change them back, unless the user explicitly asks you to do so.
 - NEVER log sensitive data (API keys, passwords, tokens).
 - NEVER expose internal IDs in error messages.

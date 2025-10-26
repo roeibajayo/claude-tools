@@ -1,6 +1,8 @@
 ---
 name: doc-optimizer
-description: Optimize documentation for conciseness and clarity by strengthening vague instructions and removing redundancy. Use when asked to optimize, condense, or clarify documentation files.
+description:
+  Optimize documentation for conciseness and clarity by strengthening vague instructions and removing redundancy.
+  Use when asked to optimize, condense, or clarify documentation files, Claude Skill, Claude Command, etc.
 ---
 
 # Documentation Optimizer Skill
@@ -51,6 +53,7 @@ See [execution-test.md](references/execution-test.md) for detailed decision fram
 ### Step 1: Evaluate for Vagueness
 
 Cover examples and read only the instruction. Ask:
+
 - Can it be executed correctly without looking at examples?
 - Does it contain subjective terms like "clearly", "properly", "immediately" without definition?
 - Are there measurable criteria or explicit steps?
@@ -61,6 +64,7 @@ Cover examples and read only the instruction. Ask:
 ### Step 2: If Clear (Examples Not Needed for Understanding)
 
 Determine if examples serve operational purpose:
+
 - ✅ Defines what "correct" looks like → **KEEP**
 - ✅ Shows exact commands with success criteria → **KEEP**
 - ✅ Sequential workflows where order matters → **KEEP**
@@ -112,6 +116,7 @@ Apply these techniques while preserving clarity:
    - Use tables for multi-dimensional information
 
 **Warning**: Do NOT sacrifice these for conciseness:
+
 - Scannability (vertical lists > comma-separated concatenations)
 - Pattern recognition (checkmarks/bullets > prose)
 - Explicit criteria ("ALL", "at least ONE", "NEVER")
@@ -147,6 +152,7 @@ See [execution-test.md](references/execution-test.md) for semantic equivalence t
 ## Quality Standards
 
 Every change must satisfy ALL criteria:
+
 - ✅ Meaning preserved - Instructions mean exactly the same thing
 - ✅ Executability preserved - Claude can execute correctly without removed content
 - ✅ Success criteria intact - What "correct" looks like is still clear
@@ -156,6 +162,7 @@ Every change must satisfy ALL criteria:
 ## Idempotent Design
 
 This optimization can be run multiple times:
+
 - **First pass**: Strengthens vague instructions, removes obvious redundancy
 - **Second pass**: Further conciseness improvements if instructions are now self-sufficient
 - **Subsequent passes**: No changes if already optimized
