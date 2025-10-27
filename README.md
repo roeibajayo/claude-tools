@@ -4,36 +4,46 @@ A collection of Claude Code tools and workflows for structured project developme
 
 ## Installation
 
-1. Add this repository as a submodule to your project:
+Run one of the following commands from your project directory:
 
+### Quick Install (Recommended)
+
+**Linux/Mac:**
 ```bash
-cd /path/to/your/project
-git submodule add https://github.com/roeibajayo/claude-tools.git .claude-tools
-git submodule update --init --recursive
+curl -fsSL https://raw.githubusercontent.com/roeibajayo/claude-tools/main/install.sh | bash
 ```
 
-2. Run the installation script:
-
+**Windows (PowerShell):**
 ```powershell
-# Windows
-.\.claude-tools\install.ps1
-
-# Linux/Mac
-./.claude-tools/install.sh
+irm https://raw.githubusercontent.com/roeibajayo/claude-tools/main/install.ps1 | iex
 ```
 
-This copies all `.claude/` files from the submodule to your project's `.claude/` directory.
+### Manual Install
+
+If you prefer to review the script before running:
+
+**Linux/Mac:**
+```bash
+curl -o install.sh https://raw.githubusercontent.com/roeibajayo/claude-tools/main/install.sh
+chmod +x install.sh
+./install.sh
+rm install.sh  # Optional cleanup
+```
+
+**Windows (PowerShell):**
+```powershell
+curl -o install.ps1 https://raw.githubusercontent.com/roeibajayo/claude-tools/main/install.ps1
+.\install.ps1
+rm install.ps1  # Optional cleanup
+```
+
+### What It Does
+
+The installation script:
+1. Clones the repository with `--depth 1` (shallow clone)
+2. Copies all `.claude/` files to your project's `.claude/` directory
+3. Automatically cleans up the temporary clone
 
 ## Updating
 
-To update to the latest version, simply re-run the installation script:
-
-```powershell
-# Windows
-.\.claude-tools\install.ps1
-
-# Linux/Mac
-./.claude-tools/install.sh
-```
-
-The script automatically pulls the latest version from git before copying files.
+To update to the latest version, simply run the installation command again. The script will fetch the latest version and update your `.claude/` files.

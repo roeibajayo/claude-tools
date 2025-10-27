@@ -10,17 +10,22 @@ This is a collection of Claude Code tools and workflows for project development.
 
 ## Installation Method
 
-This repository is designed to be used as a **git submodule** in other projects:
+This repository provides a simple installation script that can be run from any project:
 
-1. Add as submodule: `git submodule add https://github.com/roeibajayo/claude-tools .claude-tools`
-2. Run installation script: `./.claude-tools/install.ps1` (Windows) or `./.claude-tools/install.sh` (Linux/Mac)
-3. The script copies all `.claude/` files from the submodule to the parent project's `.claude/` directory
+**Quick Install:**
+- Linux/Mac: `curl -fsSL https://raw.githubusercontent.com/roeibajayo/claude-tools/main/install.sh | bash`
+- Windows: `irm https://raw.githubusercontent.com/roeibajayo/claude-tools/main/install.ps1 | iex`
 
-This approach allows:
+**How It Works:**
+1. Clones the repository with `--depth 1` (shallow clone) to a temporary directory
+2. Copies all `.claude/` files to your project's `.claude/` directory
+3. Automatically cleans up the temporary clone
 
-- Version-controlled tool updates via `git submodule update`
-- Consistent tooling across multiple projects
-- Easy updates by pulling submodule changes and re-running install script
+**Benefits:**
+- Single command installation (no git submodules needed)
+- Minimal disk space usage (shallow clone)
+- Automatic cleanup
+- Easy updates by re-running the same command
 
 ## Development Commands
 

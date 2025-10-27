@@ -1,76 +1,73 @@
 #!/usr/bin/env pwsh
-# install.ps1 - Install Claude Tools to parent project
+# install.ps1 - Install Claude Tools
 #
-# Usage: ./.claude-tools/install.ps1
+# Usage:
+#   # From any project directory:
+#   irm https://raw.githubusercontent.com/roeibajayo/claude-tools/main/install.ps1 | iex
 #
-# This script copies all .claude/ files from this submodule
-# to the parent project's .claude/ directory.
+#   # Or download and run locally:
+#   curl -o install.ps1 https://raw.githubusercontent.com/roeibajayo/claude-tools/main/install.ps1
+#   ./install.ps1
 
 $ErrorActionPreference = "Stop"
 
-# Get script directory (the .claude-tools submodule location)
-$ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
-$SourceDir = Join-Path $ScriptDir ".claude"
-
-# Get parent directory (the project root)
-$ParentDir = Split-Path -Parent $ScriptDir
-$TargetDir = Join-Path $ParentDir ".claude"
+$REPO_URL = "git@github.com:roeibajayo/claude-tools.git"
+$TEMP_DIR = ".claude-tools-temp"
+$TARGET_DIR = ".claude"
 
 Write-Host "Claude Tools Installer" -ForegroundColor Cyan
 Write-Host "======================" -ForegroundColor Cyan
 Write-Host ""
 
-# Check if source .claude directory exists
-if (-not (Test-Path $SourceDir)) {
-    Write-Host "ERROR: Source directory not found: $SourceDir" -ForegroundColor Red
-    Write-Host "Make sure this script is run from within the .claude-tools submodule." -ForegroundColor Red
+# Check if git is available
+if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
+    Write-Host "ERROR: git is not installed or not in PATH" -ForegroundColor Red
     exit 1
 }
 
-Write-Host "Source: $SourceDir" -ForegroundColor Gray
-Write-Host "Target: $TargetDir" -ForegroundColor Gray
-Write-Host ""
+# Check if we're in a project directory (optional warning)
+if (-not (Test-Path "package.json") -and -not (Test-Path ".git")) {
+    Write-Host "WARNING: No package.json or .git found. Are you in a project directory?" -ForegroundColor Yellow
+    $response = Read-Host "Continue anyway? (y/N)"
+    if ($response -ne "y" -and $response -ne "Y") {
+        Write-Host "Installation cancelled." -ForegroundColor Yellow
+        exit 0
+    }
+    Write-Host ""
+}
 
-# Pull latest version from git
-Write-Host "Updating to latest version..." -ForegroundColor Yellow
-Push-Location $ScriptDir
+# Clean up any existing temp directory
+if (Test-Path $TEMP_DIR) {
+    Write-Host "Cleaning up existing temp directory..." -ForegroundColor Yellow
+    Remove-Item -Recurse -Force $TEMP_DIR
+}
+
 try {
-    $gitOutput = git pull origin main 2>&1
-    if ($LASTEXITCODE -eq 0) {
-        Write-Host "  $gitOutput" -ForegroundColor Green
-    } else {
-        Write-Host "  Warning: Could not pull latest version: $gitOutput" -ForegroundColor Yellow
-        Write-Host "  Continuing with current version..." -ForegroundColor Yellow
+    # Clone the repository with shallow depth
+    Write-Host "Cloning repository..." -ForegroundColor Yellow
+    git clone --depth 1 $REPO_URL $TEMP_DIR 2>&1 | Out-Null
+    if ($LASTEXITCODE -ne 0) {
+        throw "Failed to clone repository"
     }
-} catch {
-    Write-Host "  Warning: Git pull failed: $_" -ForegroundColor Yellow
-    Write-Host "  Continuing with current version..." -ForegroundColor Yellow
-} finally {
-    Pop-Location
-}
-Write-Host ""
+    Write-Host "  Repository cloned successfully" -ForegroundColor Green
+    Write-Host ""
 
-# Create target directory if it doesn't exist
-if (-not (Test-Path $TargetDir)) {
-    Write-Host "Creating target directory..." -ForegroundColor Yellow
-    New-Item -ItemType Directory -Path $TargetDir | Out-Null
-}
-
-# Function to copy directory recursively
-function Copy-Directory {
-    param (
-        [string]$Source,
-        [string]$Destination
-    )
-
-    # Create destination directory if it doesn't exist
-    if (-not (Test-Path $Destination)) {
-        New-Item -ItemType Directory -Path $Destination | Out-Null
+    # Check if source .claude directory exists
+    $SOURCE_DIR = Join-Path $TEMP_DIR ".claude"
+    if (-not (Test-Path $SOURCE_DIR)) {
+        throw "Source .claude directory not found in repository"
     }
 
-    # Copy all items
-    Get-ChildItem -Path $Source -Recurse | ForEach-Object {
-        $targetPath = $_.FullName.Replace($Source, $Destination)
+    # Create target directory if it doesn't exist
+    if (-not (Test-Path $TARGET_DIR)) {
+        Write-Host "Creating .claude directory..." -ForegroundColor Yellow
+        New-Item -ItemType Directory -Path $TARGET_DIR | Out-Null
+    }
+
+    # Copy files
+    Write-Host "Copying files..." -ForegroundColor Yellow
+    Get-ChildItem -Path $SOURCE_DIR -Recurse | ForEach-Object {
+        $targetPath = $_.FullName.Replace($SOURCE_DIR, $TARGET_DIR)
 
         if ($_.PSIsContainer) {
             # Create directory
@@ -81,15 +78,32 @@ function Copy-Directory {
         else {
             # Copy file
             Copy-Item -Path $_.FullName -Destination $targetPath -Force
-            Write-Host "  Copied: $($_.FullName.Replace($Source + '\', ''))" -ForegroundColor Green
+            $relativePath = $_.FullName.Replace($SOURCE_DIR + '\', '')
+            Write-Host "  Copied: $relativePath" -ForegroundColor Green
         }
     }
+
+    Write-Host ""
+    Write-Host "Installation complete!" -ForegroundColor Green
+    Write-Host ""
+    Write-Host "The following files were installed to .claude/:" -ForegroundColor Cyan
+    Get-ChildItem -Path $TARGET_DIR -Recurse -File | ForEach-Object {
+        $relativePath = $_.FullName.Replace((Get-Location).Path + '\' + $TARGET_DIR + '\', '')
+        Write-Host "  - $relativePath" -ForegroundColor Gray
+    }
+    Write-Host ""
 }
-
-# Perform the copy
-Write-Host "Copying files..." -ForegroundColor Yellow
-Copy-Directory -Source $SourceDir -Destination $TargetDir
-
-Write-Host ""
-Write-Host "Installation complete!" -ForegroundColor Green
-Write-Host ""
+catch {
+    Write-Host ""
+    Write-Host "ERROR: Installation failed: $_" -ForegroundColor Red
+    exit 1
+}
+finally {
+    # Clean up temp directory
+    if (Test-Path $TEMP_DIR) {
+        Write-Host "Cleaning up..." -ForegroundColor Yellow
+        Remove-Item -Recurse -Force $TEMP_DIR
+        Write-Host "  Temp directory removed" -ForegroundColor Green
+        Write-Host ""
+    }
+}
