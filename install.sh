@@ -12,7 +12,7 @@
 
 set -e
 
-REPO_URL="git@github.com:roeibajayo/claude-tools.git"
+REPO_URL="https://github.com/roeibajayo/claude-tools.git"
 TEMP_DIR=".claude-tools-temp"
 TARGET_DIR=".claude"
 
