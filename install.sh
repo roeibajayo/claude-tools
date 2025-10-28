@@ -80,24 +80,31 @@ if [ ! -d "$TARGET_DIR" ]; then
     mkdir -p "$TARGET_DIR"
 fi
 
-# Copy files
+# Copy files and track what was copied
 echo -e "\033[33mCopying files...\033[0m"
-cp -r "$SOURCE_DIR"/* "$TARGET_DIR/"
-
-# Show copied files
+COPIED_FILES=()
 find "$SOURCE_DIR" -type f | while read -r file; do
     rel_path="${file#$SOURCE_DIR/}"
+    target_file="$TARGET_DIR/$rel_path"
+
+    # Create parent directory if needed
+    mkdir -p "$(dirname "$target_file")"
+
+    # Copy file
+    cp "$file" "$target_file"
     echo -e "  \033[32mCopied: $rel_path\033[0m"
+    echo "$rel_path" >> "$TEMP_DIR/.copied_files"
 done
 
 echo ""
 echo -e "\033[32mInstallation complete!\033[0m"
 echo ""
 echo -e "\033[36mThe following files were installed to .claude/:\033[0m"
-find "$TARGET_DIR" -type f | while read -r file; do
-    rel_path="${file#$TARGET_DIR/}"
-    echo -e "  \033[90m- $rel_path\033[0m"
-done
+if [ -f "$TEMP_DIR/.copied_files" ]; then
+    while read -r rel_path; do
+        echo -e "  \033[90m- $rel_path\033[0m"
+    done < "$TEMP_DIR/.copied_files"
+fi
 echo ""
 
 # Note: cleanup will happen automatically via trap

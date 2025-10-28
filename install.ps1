@@ -66,6 +66,7 @@ try {
 
     # Copy files
     Write-Host "Copying files..." -ForegroundColor Yellow
+    $copiedFiles = @()
     Get-ChildItem -Path $SOURCE_DIR -Recurse | ForEach-Object {
         $targetPath = $_.FullName.Replace($SOURCE_DIR, $TARGET_DIR)
 
@@ -80,6 +81,7 @@ try {
             Copy-Item -Path $_.FullName -Destination $targetPath -Force
             $relativePath = $_.FullName.Replace($SOURCE_DIR + '\', '')
             Write-Host "  Copied: $relativePath" -ForegroundColor Green
+            $copiedFiles += $relativePath
         }
     }
 
@@ -87,9 +89,8 @@ try {
     Write-Host "Installation complete!" -ForegroundColor Green
     Write-Host ""
     Write-Host "The following files were installed to .claude/:" -ForegroundColor Cyan
-    Get-ChildItem -Path $TARGET_DIR -Recurse -File | ForEach-Object {
-        $relativePath = $_.FullName.Replace((Get-Location).Path + '\' + $TARGET_DIR + '\', '')
-        Write-Host "  - $relativePath" -ForegroundColor Gray
+    $copiedFiles | ForEach-Object {
+        Write-Host "  - $_" -ForegroundColor Gray
     }
     Write-Host ""
 }
