@@ -13,15 +13,18 @@ This is a collection of Claude Code tools and workflows for project development.
 This repository provides a simple installation script that can be run from any project:
 
 **Quick Install:**
+
 - Linux/Mac: `curl -fsSL https://raw.githubusercontent.com/roeibajayo/claude-tools/main/install.sh | bash`
 - Windows: `irm https://raw.githubusercontent.com/roeibajayo/claude-tools/main/install.ps1 | iex`
 
 **How It Works:**
+
 1. Clones the repository with `--depth 1` (shallow clone) to a temporary directory
 2. Copies all `.claude/` files to your project's `.claude/` directory
 3. Automatically cleans up the temporary clone
 
 **Benefits:**
+
 - Single command installation (no git submodules needed)
 - Minimal disk space usage (shallow clone)
 - Automatic cleanup

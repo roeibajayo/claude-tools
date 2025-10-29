@@ -9,8 +9,10 @@ Common mistakes when optimizing documentation that reduce clarity or break execu
 **DON'T DO THIS:**
 
 Before (Good):
+
 ```markdown
 Prohibited phrases:
+
 - "TODO: implement"
 - "For now we'll just"
 - "In the meantime, simulate"
@@ -18,6 +20,7 @@ Prohibited phrases:
 ```
 
 After (Bad):
+
 ```markdown
 Prohibited phrases: "TODO: implement", "For now we'll just", "In the meantime, simulate", "This is a placeholder"
 ```
@@ -29,8 +32,10 @@ Prohibited phrases: "TODO: implement", "For now we'll just", "In the meantime, s
 **DON'T DO THIS:**
 
 Before (Good):
+
 ```markdown
 Before committing:
+
 - ✅ Run all tests
 - ✅ Check for linting errors
 - ✅ Review diff
@@ -38,6 +43,7 @@ Before committing:
 ```
 
 After (Bad):
+
 ```markdown
 Before committing, run all tests, check for linting errors, review diff, and verify no sensitive data.
 ```
@@ -49,6 +55,7 @@ Before committing, run all tests, check for linting errors, review diff, and ver
 **DON'T DO THIS:**
 
 Before (Good):
+
 ```markdown
 ## Success Criteria
 
@@ -62,6 +69,7 @@ Before (Good):
 ```
 
 After (Bad):
+
 ```markdown
 All tests must pass with no linting errors. Run tests and review output.
 ```
@@ -73,6 +81,7 @@ All tests must pass with no linting errors. Run tests and review output.
 **DON'T DO THIS:**
 
 Before (Good):
+
 ```markdown
 **Lock Acquisition**: Try to acquire lock before starting task.
 
@@ -82,6 +91,7 @@ Before (Good):
 ```
 
 After (Bad):
+
 ```markdown
 Try to acquire lock before starting task, and if acquisition fails, select alternative task, but never delete lock files manually.
 ```
@@ -95,11 +105,13 @@ Try to acquire lock before starting task, and if acquisition fails, select alter
 **DON'T DO THIS:**
 
 Before:
+
 ```markdown
 **Goals**: A, B, C
 ```
 
 After:
+
 ```markdown
 See **Priority** section (which says: C > B > A)
 ```
@@ -111,10 +123,12 @@ See **Priority** section (which says: C > B > A)
 **DON'T DO THIS:**
 
 Before:
+
 ```markdown
 ## Quick Reference
 
 Content to keep:
+
 - Commands
 - Formats
 - Success criteria
@@ -124,6 +138,7 @@ Content to keep:
 ```
 
 After:
+
 ```markdown
 ## Quick Reference
 
@@ -141,6 +156,7 @@ See detailed section below for content to keep.
 **DON'T DO THIS:**
 
 Before (Good):
+
 ```markdown
 1. Run tests
 2. Verify all pass (exit code 0, no failures in output)
@@ -148,6 +164,7 @@ Before (Good):
 ```
 
 After (Bad):
+
 ```markdown
 1. Run tests
 2. Verify all pass (see "Success Criteria" section)
@@ -161,6 +178,7 @@ After (Bad):
 **DON'T DO THIS:**
 
 Before (Good):
+
 ```markdown
 1. Complete SYNTHESIS phase
 2. Present plan to user
@@ -170,6 +188,7 @@ Before (Good):
 ```
 
 After (Bad):
+
 ```markdown
 1. Complete SYNTHESIS phase
 2. Present plan to user
@@ -187,10 +206,12 @@ After (Bad):
 **DON'T DO THIS:**
 
 Before (Good):
-```markdown
+
+````markdown
 Delete completed tasks from todo.md
 
 Example:
+
 ```bash
 # ❌ WRONG: Marking complete
 vim todo.md  # Changed - [ ] to - [x]
@@ -198,12 +219,14 @@ vim todo.md  # Changed - [ ] to - [x]
 # ✅ CORRECT: Delete entry
 vim todo.md  # DELETE entire task entry
 ```
-```
+````
+
+````
 
 After (Bad):
 ```markdown
 Delete completed tasks from todo.md (remove entire entry, not mark as complete)
-```
+````
 
 **Why it might fail**: If "delete" is commonly misunderstood, the example provides clearer guidance than additional words. Keep the example until you're confident the instruction is unambiguous.
 
@@ -212,12 +235,14 @@ Delete completed tasks from todo.md (remove entire entry, not mark as complete)
 **DON'T DO THIS:**
 
 Before (Good):
+
 ```markdown
 [Specific example code block]
 → Shows that "delete" means remove lines, not change checkbox.
 ```
 
 After (Bad):
+
 ```markdown
 [Specific example code block]
 ```
@@ -231,8 +256,10 @@ After (Bad):
 **DON'T DO THIS:**
 
 Before (Good):
+
 ```markdown
 **ARCHIVAL SUCCESS CRITERIA**:
+
 - `git diff todo.md` shows ONLY deletions
 - `git diff changelog.md` shows ONLY additions under today's date
 - Both files in SAME commit
@@ -240,6 +267,7 @@ Before (Good):
 ```
 
 After (Bad):
+
 ```markdown
 Verify archival completed successfully.
 ```
@@ -251,11 +279,13 @@ Verify archival completed successfully.
 **DON'T DO THIS:**
 
 Before (Good):
+
 ```bash
 git log --format='%an %ae' -1
 ```
 
 After (Bad):
+
 ```bash
 git log
 ```
@@ -267,14 +297,17 @@ git log
 **DON'T DO THIS:**
 
 Before (Good):
+
 ```markdown
 Prohibited patterns:
+
 - ❌ `TODO: implement later`
 - ❌ `For now, we'll just mock this`
 - ✅ `[Complete implementation without placeholders]`
 ```
 
 After (Bad):
+
 ```markdown
 Don't use placeholder comments. Implement fully.
 ```
@@ -288,6 +321,7 @@ Don't use placeholder comments. Implement fully.
 **DON'T DO THIS:**
 
 Before (Good):
+
 ```markdown
 1. Check if lock exists: `test -f .task-lock.json`
 2. If lock exists, read contents: `cat .task-lock.json`
@@ -297,6 +331,7 @@ Before (Good):
 ```
 
 After (Bad):
+
 ```markdown
 Manage lock file as needed.
 ```

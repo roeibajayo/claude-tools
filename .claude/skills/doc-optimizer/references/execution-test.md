@@ -14,6 +14,7 @@ Before removing ANY content, apply these questions in order:
 This is the most important question. If removing content would cause incorrect execution, the content is execution-critical and must be kept.
 
 **Examples of execution-critical content:**
+
 - Success criteria that define what "correct" looks like
 - Specific file paths, line numbers, or command outputs
 - Exact patterns showing correct vs incorrect approaches
@@ -48,6 +49,7 @@ Success criteria are execution-critical because they define the target state. Wi
 
 ```markdown
 **ARCHIVAL SUCCESS CRITERIA**:
+
 - `git diff todo.md` shows ONLY deletions
 - `git diff changelog.md` shows ONLY additions under today's date
 - Both files in SAME commit
@@ -143,6 +145,7 @@ Multiple examples showing boundary between prohibited/permitted when rule uses s
 Annotations that generalize specific examples into reusable decision principles. Text that teaches how to apply the same reasoning to future cases.
 
 **Critical Distinction:**
+
 - ✅ **KEEP**: "→ Specifies exactly what success looks like" (teaches pattern recognition)
 - ❌ **REMOVE**: "This example helps you understand the concept" (generic educational)
 - ✅ **KEEP**: "→ Claude doesn't need to know why" (generalizes when to remove content)
@@ -171,16 +174,19 @@ Before replacing content with reference, verify:
 ### Duplication Taxonomy
 
 **Type 1: Quick-Reference + Detailed** (KEEP BOTH)
+
 - Simple list (3-5 words per item) for fast scanning
 - Detailed section with tests, examples, edge cases
 - **Purpose**: Different use cases - quick lookup vs deep understanding
 
 **Type 2: Exact Duplication** (CONSOLIDATE)
+
 - Same information, same level of detail, same context
 - Appearing in multiple places with no contextual justification
 - **Purpose**: Genuine redundancy - consolidate to single source
 
 **Type 3: Pedagogical Repetition** (CONTEXT-DEPENDENT)
+
 - Key rules stated multiple times for emphasis
 - Summary + detailed explanation
 - **Purpose**: Learning/retention - keep if document is pedagogical, remove if reference doc
@@ -227,6 +233,7 @@ only reliable way to ensure no data loss occurred.
 ```
 
 **Decision**: REMOVE
+
 - Question 1: Can execute correctly without this? YES (instruction says to verify)
 - Question 2: Explains WHY? YES (explains why verification is needed)
 - **Result**: Remove - not needed for execution
@@ -235,6 +242,7 @@ only reliable way to ensure no data loss occurred.
 
 ```markdown
 **ARCHIVAL SUCCESS CRITERIA**:
+
 - `git diff todo.md` shows ONLY deletions
 - `git diff changelog.md` shows ONLY additions under today's date
 - Both files in SAME commit
@@ -242,6 +250,7 @@ only reliable way to ensure no data loss occurred.
 ```
 
 **Decision**: KEEP
+
 - Question 1: Can execute correctly without this? NO (defines what "correct" means)
 - **Result**: Keep - execution-critical success criteria
 
@@ -253,6 +262,7 @@ Instead, select an alternative task to work on.
 ```
 
 **Decision**: REMOVE (if instruction already says this clearly)
+
 - Question 1: Can execute correctly without this? YES (if already stated in instruction)
 - Question 2: Explains WHY? NO
 - Question 3: Shows WHAT "correct" looks like? NO (just restates instruction)
@@ -270,6 +280,7 @@ vim todo.md  # DELETE entire task entry
 ```
 
 **Decision**: KEEP
+
 - Question 1: Can execute correctly without this? NO (resolves ambiguity in "delete")
 - **Result**: Keep - shows that "delete" means remove lines, not change checkbox
 
@@ -281,6 +292,7 @@ vim todo.md  # DELETE entire task entry
 ```
 
 **Decision**: KEEP
+
 - Question 1: Can execute correctly without this? Possibly YES (if example is clear)
 - Question 2: Explains WHY? NO
 - Question 3: Shows WHAT "correct" looks like? NO (annotation, not example)

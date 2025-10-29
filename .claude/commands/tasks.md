@@ -17,7 +17,10 @@ You **MUST** consider the user input before proceeding (if not empty).
 1. **Execute task generation workflow**:
    - Generate tasks organized by Project (see Task Generation Rules below)
    - Validate task completeness (each project has all needed tasks, independently testable)
-   - Search for existing reusable components/services/models to minimize new code
+   - Find existing components/services that can be extended
+   - Detect similar features for pattern reuse
+   - Identify shared utilities and helpers
+   - Map dependencies to avoid duplication
 
 2. **Generate tasks.md**: Use `.claude/templates/tasks.md` as structure, fill with:
    - Phase 1+: One phase per project
@@ -49,6 +52,7 @@ Every task MUST strictly follow this format:
 2. **Description**: Clear action with exact file path
    - File paths should use forward slashes `/` even on Windows
    - File paths should be surrounded by backticks `` ` `` for clarity
+3. `[New]` or `[Update]` designation
 
 **Examples**:
 
@@ -65,4 +69,4 @@ Every task MUST strictly follow this format:
 - Each project (P1, P2, P3...) gets its own phase
 - Each project section should contains only backend or frontend tasks as applicable, not mixed
 - Within each project phase, group tasks by component type
-- Each Service / Repository / Manager / Page should be in separate section
+- Each Service / Repository / Manager / Page should be in separated section

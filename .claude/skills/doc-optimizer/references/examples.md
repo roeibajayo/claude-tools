@@ -20,17 +20,20 @@ When you finish a task, make sure to update the status appropriately and move on
 ## Task Completion
 
 Mark task as completed when ALL criteria met:
+
 - ✅ Implementation complete (no TODOs or placeholders)
 - ✅ Tests pass (exit code 0)
 - ✅ Changes committed to git
 
 Steps:
+
 1. Update task status to "completed" in task tracker
 2. Archive task details to changelog with timestamp
 3. Proceed to next pending task
 ```
 
 **Improvements**:
+
 - Explicit completion criteria (measurable)
 - Specific steps (numbered, actionable)
 - Removed vague term "appropriately"
@@ -45,6 +48,7 @@ Steps:
 Before starting work on a task, you need to acquire a lock to prevent other agents from working on the same task. This ensures that multiple agents don't conflict with each other. Lock acquisition is important because without it, you might have race conditions where two agents modify the same files simultaneously.
 
 To acquire a lock:
+
 1. Check if lock file exists
 2. If exists, verify it's not stale
 3. Create lock file with task ID
@@ -53,6 +57,7 @@ This process prevents conflicts and ensures data integrity by making sure only o
 ```
 
 **Problems**:
+
 - Explains WHY multiple times (educational, not operational)
 - Redundant rationale about preventing conflicts
 - Verbose introduction restates the same concept
@@ -63,12 +68,14 @@ This process prevents conflicts and ensures data integrity by making sure only o
 ## Lock File Management
 
 To acquire a lock:
+
 1. Check if lock file exists
 2. If exists, verify it's not stale (timestamp < 1 hour)
 3. Create lock file: `echo '{"task":"X","ts":"Y"}' > .task-lock.json`
 ```
 
 **Improvements**:
+
 - Removed all rationale (WHY) content
 - Kept operational steps (WHAT to do)
 - Added specific details (timestamp threshold, exact command)
@@ -78,12 +85,13 @@ To acquire a lock:
 
 ### Before (Clear instruction with example)
 
-```markdown
+````markdown
 ## Task Deletion
 
 Delete completed tasks from todo.md by removing the entire entry.
 
 Example:
+
 ```bash
 # ❌ WRONG: Marking as complete
 vim todo.md  # Changed - [ ] to - [x]
@@ -94,7 +102,9 @@ vim todo.md  # DELETE entire line "- [ ] Task name"
 vim changelog.md  # ADD "- [2025-10-26] Completed: Task name"
 git commit -m "Archive completed task" todo.md changelog.md
 ```
-```
+````
+
+````
 
 **Should we remove the example?**
 
@@ -119,9 +129,10 @@ Content to keep:
 - Commands (bash, jq, git)
 - Data structures (JSON, schemas)
 - Success criteria
-```
+````
 
 In section "Detailed Guidelines":
+
 ```markdown
 ## Execution-Critical Content
 
@@ -137,11 +148,13 @@ The following content types must always be preserved:
 ### After (Consolidated)
 
 In section "Quick Reference":
+
 ```markdown
 Content to keep: Commands, Data structures, Success criteria (see Detailed Guidelines)
 ```
 
 In section "Detailed Guidelines":
+
 ```markdown
 ## Execution-Critical Content
 
@@ -153,6 +166,7 @@ The following content types must always be preserved:
 ```
 
 **Improvements**:
+
 - Quick reference maintained for scanning
 - Detailed section preserved for depth
 - Cross-reference added without interrupting workflow
@@ -169,6 +183,7 @@ You should first check that all the required fields are present, and then you ne
 ```
 
 **Problems**:
+
 - Narrative format (harder to scan)
 - Sequential steps hidden in prose
 - No clear completion criteria
@@ -179,6 +194,7 @@ You should first check that all the required fields are present, and then you ne
 ## Validation Process
 
 Execute in order:
+
 1. Verify required fields present (name, id, type)
 2. Check data types match schema
 3. Validate value ranges:
@@ -191,6 +207,7 @@ Success: All checks pass, exit code 0
 ```
 
 **Improvements**:
+
 - Numbered steps (sequential, scannable)
 - Specific field names and criteria
 - Explicit value ranges
@@ -200,7 +217,7 @@ Success: All checks pass, exit code 0
 
 ### Before (Just example)
 
-```markdown
+````markdown
 ## Commit Message Format
 
 ```bash
@@ -213,7 +230,9 @@ Co-Authored-By: Claude <noreply@anthropic.com>
 EOF
 )"
 ```
-```
+````
+
+````
 
 **Missing**: What principle does this demonstrate?
 
@@ -231,10 +250,11 @@ Implement user authentication
 Co-Authored-By: Claude <noreply@anthropic.com>
 EOF
 )"
-```
+````
 
 → Use HEREDOC for multi-line commit messages to preserve formatting
-```
+
+````
 
 **Improvement**: Annotation extracts general rule (use HEREDOC for multi-line messages) that applies to all future commits.
 
@@ -254,9 +274,10 @@ All changes must include tests. This is important because:
 Writing tests early helps catch bugs before they reach production.
 
 To run tests: `npm test`
-```
+````
 
 **Problems**:
+
 - Lists benefits (WHY) - educational
 - Includes general advice about test writing
 - Operational content (how to run tests) buried
@@ -267,6 +288,7 @@ To run tests: `npm test`
 ## Testing Requirements
 
 Before committing:
+
 1. Add tests for new functionality
 2. Run tests: `npm test`
 3. Verify exit code 0 (all tests pass)
@@ -275,6 +297,7 @@ Required: All tests pass before commit.
 ```
 
 **Improvements**:
+
 - Removed all WHY content (benefits, rationale)
 - Kept only WHAT to do (specific steps)
 - Added success criteria (exit code 0)
@@ -291,6 +314,7 @@ Ensure code is properly formatted and clearly written with appropriate comments.
 ```
 
 **Problems**:
+
 - "Properly" - undefined
 - "Clearly" - subjective
 - "Appropriate" - vague
@@ -301,6 +325,7 @@ Ensure code is properly formatted and clearly written with appropriate comments.
 ## Code Review
 
 Verify ALL criteria:
+
 - ✅ Code passes formatter: `npm run format` (no changes)
 - ✅ No linting errors: `npm run lint` (exit code 0)
 - ✅ Public functions have JSDoc comments (params, returns, description)
@@ -310,6 +335,7 @@ Success: All checks pass
 ```
 
 **Improvements**:
+
 - Replaced "properly formatted" with specific command
 - Replaced "clearly written" with measurable criteria
 - Replaced "appropriate comments" with explicit rules (public functions, complex logic)
@@ -317,16 +343,16 @@ Success: All checks pass
 
 ## Summary of Optimization Patterns
 
-| Pattern | Before | After | Principle |
-|---------|--------|-------|-----------|
-| Strengthen vague | "Update appropriately" | "Set status='completed' in task.json" | Replace subjective with explicit |
-| Remove redundancy | Multiple "why" explanations | Single operational instruction | Keep WHAT, remove WHY |
-| Preserve examples | Clear instruction + example | Keep both if example shows "correct" | Apply Execution Test |
-| Consolidate | Same info in 2+ places | Reference or merge if semantically safe | Check semantic equivalence |
-| Convert prose | Narrative paragraphs | Numbered steps or bulleted lists | Structure over prose |
-| Add annotations | Raw example | Example + extracted principle | Enable pattern recognition |
-| Remove educational | Benefits, rationale, advice | Only operational steps | Focus on execution |
-| Replace subjective | "Clearly", "properly" | Specific commands, measurable criteria | Make testable |
+| Pattern            | Before                      | After                                   | Principle                        |
+| ------------------ | --------------------------- | --------------------------------------- | -------------------------------- |
+| Strengthen vague   | "Update appropriately"      | "Set status='completed' in task.json"   | Replace subjective with explicit |
+| Remove redundancy  | Multiple "why" explanations | Single operational instruction          | Keep WHAT, remove WHY            |
+| Preserve examples  | Clear instruction + example | Keep both if example shows "correct"    | Apply Execution Test             |
+| Consolidate        | Same info in 2+ places      | Reference or merge if semantically safe | Check semantic equivalence       |
+| Convert prose      | Narrative paragraphs        | Numbered steps or bulleted lists        | Structure over prose             |
+| Add annotations    | Raw example                 | Example + extracted principle           | Enable pattern recognition       |
+| Remove educational | Benefits, rationale, advice | Only operational steps                  | Focus on execution               |
+| Replace subjective | "Clearly", "properly"       | Specific commands, measurable criteria  | Make testable                    |
 
 ## Key Takeaways
 
