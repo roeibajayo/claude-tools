@@ -1,3 +1,10 @@
+---
+name: dotnet-guidelines
+description:
+  dotnet coding guidelines and best practices. MUST follow these rules.
+  Use when reviewing or writing .NET code.
+---
+
 # IMPORTANT Server Guidelines
 
 - ALWAYS Use Primary Constructors for classes.

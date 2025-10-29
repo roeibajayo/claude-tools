@@ -1,3 +1,10 @@
+---
+name: react-guidelines
+description:
+  React coding guidelines and best practices. MUST follow these rules.
+  Use when reviewing or writing React code.
+---
+
 # IMPORTANT Frontend Guidelines
 
 - NEVER use `useState` or `useEffect` directly in React Components. ALWAYS use custom hook in separated for that (e.g., `useBot`, `useBacktesting`).

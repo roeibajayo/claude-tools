@@ -1,8 +1,8 @@
 ---
-name: refactor
+name: dotnet-refactor
 description:
   Analyzes code quality, suggests improvements, and safely refactors code while preserving behavior.
-  Use when improving code structure, addressing technical debt, or refactoring.
+  Use when improving code structure, addressing technical debt, or refactoring dotnet code.
 ---
 
 # Refactor Skill
@@ -36,14 +36,12 @@ Systematic code refactoring with progressive disclosure.
 - **Performance Bottlenecks**: Inefficient algorithms, unnecessary loops
 - **Security Concerns**: SQL injection risks, XSS vulnerabilities, exposed secrets
 - **Memory Leaks**: Unclosed resources, circular references
-- **Extract Components**: UI components that can be shared/reused
 
 ### 3. Execute Refactoring
 
 1. **Pre-Refactor**:
    - Ensure tests exist (warn if missing)
    - Run tests to establish baseline
-   - Create backup/commit point
 
 2. **Refactor Incrementally**:
    - Apply one pattern at a time
