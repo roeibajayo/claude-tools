@@ -20,7 +20,7 @@ Systematic code refactoring with progressive disclosure.
 
 ### 2. Read Instructions
 
-- Follow the provided instructions for refactoring React page in [`references/instructions.md`](./references/instructions.md)
+- **MUST** Follow the provided instructions for refactoring React page in [`references/instructions.md`](./references/instructions.md)
 
 ### 3. Deep Analysis
 
