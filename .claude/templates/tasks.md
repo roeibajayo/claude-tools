@@ -8,37 +8,28 @@ description: Task list template for feature implementation.
   ============================================================================
   IMPORTANT: The tasks below are SAMPLE TASKS for illustration purposes only.
 
-  You MUST replace these with actual tasks based on:
-  - User stories from spec.md (with their priorities P1, P2, P3...)
-  - Delete component sections (Models, DTOs, etc.) that aren't needed for a story
-
-  Tasks MUST be organized by user story so each story can be:
-  - Implemented independently
-  - Tested independently
+  - You MUST replace these with actual tasks
+  - Delete component sections (Models, DTOs, etc.) that aren't needed for a project
 
   DO NOT keep these sample tasks in the generated tasks.md file.
   ============================================================================
 !-->
 
-## Phase 1: [Story Title] (P1)
+## Phase 1: [Project Title] (P1)
 
-<!-- DELETE sections below that aren't needed for this story -->
+<!-- DELETE sections below that aren't needed for this project -->
 
-### Interfaces
+### [Service] / [Repository] / [Manager]
 
-- [ ] I[Service] in `src/api-logic/Interfaces/I[Service].cs`
-  - [ReturnType] [Method]([ParamType] [param]) <!-- repeat as needed -->
-
-### Services
-
-- [ ] [Service] in `src/api-logic/Services/[Service].cs`
+- [ ] [Service] in `src/api-logic/Services/[Service].cs` [New/Update]
   - Implement [Interface] <!-- if applicable -->
+    - [ReturnType] [Method]([ParamType] [param]) <!-- repeat as needed, only if interface is new -->
   - [ReturnType] [Method]([ParamType] [param]) <!-- repeat as needed -->
-  - Calls [Service].[Method]([param]) <!-- if applicable, repeat as needed -->
+    - Calls [Service].[Method]([param]) <!-- if applicable, repeat as needed -->
 
 ### Endpoints
 
-- [ ] [Action][Resource]Endpoint in `src/api/Endpoints/[Resource]/[Action][Resource]Endpoint.cs`
+- [ ] [Endpoint] in `src/api/Endpoints/[Endpoint]Endpoint.cs` [New/Update]
   - Route: [HTTPMethod] `[resource-path]`
   - Request: [RequestDto] <!-- if no DTO - replace RequestDto with request properties -->
   - Response: [ResponseDto] <!-- if no DTO - replace ResponseDto with response properties -->
@@ -46,27 +37,32 @@ description: Task list template for feature implementation.
 
 ### Models
 
-- [ ] [Model] in `src/api-logic/Models/[Model].cs`
-  - props: [prop1], [prop2]
+- [ ] [Model] in `src/api-logic/Models/[Model].cs` [New/Update]
+  - props: [prop1], [prop2] <!-- repeat as needed -->
 
-### Pages
+### [Page] (Frontend)
 
-- [ ] [Page] in `src/client/src/pages/[Section]/[Page].tsx`
+- [ ] [Page] in `src/client/src/pages/[Section]/[Page].tsx` [New/Update]
   - Route: `/[route-path]`
-  - Components: [Component1], [Component2]
+  - Hook: use[Page] in `src/client/src/hooks/use[Page].ts`
+    - Calls Services: [Service1], [Service2] <!-- if applicable, repeat as needed -->
+  - New Components: [Header], [Content], [Footer] <!-- if applicable, repeat as needed -->
+  - Reuses Components: [Sidebar] <!-- if applicable, repeat as needed -->
+  - New Shared Components: [Button] in `src/client/src/components/[Component].tsx` <!-- if applicable, repeat as needed -->
 
-### Components
+### Shared Components
 
-- [ ] [Component] in `src/client/src/components/[Component].tsx`
+- [ ] [Component] in `src/client/src/components/[Component].tsx` [New/Update]
+  - Props: [prop1], [prop2] <!-- repeat as needed -->
 
-### Hooks
+### Shared Hooks
 
-- [ ] use[Feature] in `src/client/src/hooks/use[Feature].ts`
+- [ ] use[Feature] in `src/client/src/hooks/use[Feature].ts` [New/Update]
   - Returns { [state1], [method1] }
 
 ### Tests
 
-- [ ] Unit test: [Service] in `tests/[Project].Tests/Services/[Service]Tests.cs`
+- [ ] Unit test: [Service] in `tests/[Project].Tests/Services/[Service]Tests.cs` [New/Update]
   - [TestMethod]: short description <!-- repeat as needed -->
 
 ---
@@ -77,9 +73,10 @@ description: Task list template for feature implementation.
 
 ## Phase N: Polish
 
-- [ ] Search for existing components/utilities/hooks/endpoints/services etc - if similar functionality exists, refactor to reuse
-- [ ] Code cleanup and refactoring: Remove unused code, Remove code duplications,Performance optimization, Security hardening
+- [ ] Refactoring components + services + pages + hooks using `refactor` Claude Skill
 - [ ] Validate all tests pass
-- [ ] Full backend build: `dotnet build`
-- [ ] Full frontend checks: `cd src/client && npx tsc --noEmit --skipLibCheck --project tsconfig.app.json && npx eslint .`
-- [ ] Format files: `cd src/client && npx prettier <files> --write`
+- [ ] Full backend build: `dotnet build` (for example)
+- [ ] Full frontend checks: `cd src/client && npx tsc --noEmit --skipLibCheck --project tsconfig.app.json && npx eslint .` (for example)
+- [ ] Format files: `cd src/client && npx prettier <files> --write` (for example)
+- [ ] Create feature documentation in `docs/features/[feature-name].md` with architecture overview and usage instructions
+- [ ] Optimize created feature documentation using the `doc-optimizer` Claude Skill

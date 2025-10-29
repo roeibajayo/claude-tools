@@ -13,50 +13,30 @@ Systematic code refactoring with progressive disclosure.
 
 ### 1. Initial Assessment
 
-Perform rapid assessment:
-
 - **Scope**: Identify files/modules to analyze
 - **Language**: Detect programming language and idioms
 - **Test Coverage**: Check if tests exist
 - **Quick Scan**: Find code smells (file size, function length, complexity)
 
-Present findings and ask user which areas to focus on.
-
 ### 2. Deep Analysis
 
-Based on user selection, perform detailed analysis:
-
-#### Structural Issues
-
-- **God Classes**: Classes with >10 methods or >500 LOC
+- **God Classes**: Classes or Interfaces with >8 public methods
 - **Long Functions**: Functions >50 LOC or cyclomatic complexity >10
-- **Deep Nesting**: Conditionals nested >3 levels deep
+- **Deep Nesting**: Conditionals nested
 - **Large Files**: Files >500 lines
-- **Parameter Overload**: Functions with >4 parameters
-
-#### Design Pattern Violations
-
-- **SOLID Principles**:
-  - Single Responsibility: Classes doing multiple things
-  - Open/Closed: Hard-coded logic that should be extensible
-  - Liskov Substitution: Inheritance misuse
-  - Interface Segregation: Fat interfaces
-  - Dependency Inversion: Direct dependencies on concrete classes
-
-#### Code Quality Issues
-
-- **Duplication**: Repeated code blocks (>5 lines similar)
+- **Parameter Overload**: Public functions with >4 parameters
+- **SOLID Principles**: Violations of SOLID design principles
+- **Coupling**: High inter-module dependencies
+- **Duplication**: Repeated code blocks (>=2 lines similar)
 - **Magic Values**: Hardcoded numbers/strings without constants
 - **Poor Naming**: Unclear variable/function names
 - **Dead Code**: Unused functions, variables, imports
 - **Global State**: Mutable global variables
 - **Error Handling**: Missing error handling or overly broad catches
-
-#### Performance & Security
-
 - **Performance Bottlenecks**: Inefficient algorithms, unnecessary loops
 - **Security Concerns**: SQL injection risks, XSS vulnerabilities, exposed secrets
 - **Memory Leaks**: Unclosed resources, circular references
+- **Extract Components**: UI components that can be shared/reused
 
 ### 3. Execute Refactoring
 
@@ -245,6 +225,31 @@ public decimal CalculateTax(decimal amount) {
     }
     return amount * STANDARD_TAX_RATE;
 }
+```
+
+### Invert Conditional Logic
+
+**When**: Deeply nested conditionals, improve readability
+
+```csharp
+// Before
+public decimal CalculateTax(decimal amount) {
+    if (IsValidAmount(amount)) {
+        // complex tax calculation logic
+        return computedTax;
+    }
+    return 0;
+}
+
+// After
+public decimal CalculateTax(decimal amount) {
+    if (!IsValidAmount(amount)) {
+        return 0;
+    }
+    // complex tax calculation logic
+    return computedTax;
+}
+
 ```
 
 ## Safety Rules
