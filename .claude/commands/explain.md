@@ -19,6 +19,7 @@ The goal here is to ensure you fully understand the user's request.
 Read files as needed to clarify the request.
 The final output should be a explanation of the user's request, not an implementation plan.
 STRICTLY READ-ONLY: Do not modify any files.
+**Save explanation in feature.md file**.
 
 ## Explanation Guidelines
 
