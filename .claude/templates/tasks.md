@@ -15,6 +15,10 @@ description: Task list template for feature implementation.
   ============================================================================
 !-->
 
+## Feature Overview
+
+<!-- Short description of the feature to be implemented, max 2 lines -->
+
 ## Phase 1: [Project Title] (P1)
 
 <!-- DELETE sections below that aren't needed for this project -->
@@ -34,8 +38,9 @@ description: Task list template for feature implementation.
   - Request: [RequestDto] <!-- if no DTO - replace RequestDto with request properties -->
   - Response: [ResponseDto] <!-- if no DTO - replace ResponseDto with response properties -->
   - Calls [Service].[Method]([param]) <!-- if applicable, repeat as needed -->
+  - Used by page/component: `[Page/Component]` <!-- if applicable, repeat as needed -->
 
-### Models
+### Models / DTOs / Entities
 
 - [ ] [Model] in `src/api-logic/Models/[Model].cs` [New/Update]
   - props: [prop1], [prop2] <!-- repeat as needed -->
@@ -73,11 +78,11 @@ description: Task list template for feature implementation.
 
 ## Phase N: Polish
 
-- [ ] Refactor React Components using `react-page-refactor` Claude Skill
-- [ ] Refactor .NET Services and Managers using `dotnet-refactor` Claude Skill
+- [ ] Refactor React Components using `react-page-refactor` Skill
+- [ ] Refactor .NET Services and Managers using `dotnet-refactor` Skill
 - [ ] Full backend build: `dotnet build` (for example)
 - [ ] Full frontend checks: `cd src/client && npx tsc --noEmit --skipLibCheck --project tsconfig.app.json && npx eslint .` (for example)
 - [ ] Validate all tests pass
 - [ ] Format files: `cd src/client && npx prettier <files> --write` (for example)
 - [ ] Create feature documentation in `docs/features/[feature-name].md` with architecture overview and usage instructions
-- [ ] Optimize created feature documentation using the `doc-optimizer` Claude Skill
+- [ ] Optimize created feature documentation using the `doc-optimizer` Skill
