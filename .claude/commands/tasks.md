@@ -15,22 +15,21 @@ You **MUST** consider the user input before proceeding (if not empty).
 ## Outline
 
 1. **Execute task generation workflow**:
-   - Generate tasks organized by Project (see Task Generation Rules below)
    - Validate task completeness (each project has all needed tasks, independently testable)
-   - Find existing components/services that can be extended
+   - Find existing components/services that can be extended or reused
    - Detect similar features for pattern reuse
    - Identify shared utilities and helpers
    - Map dependencies to avoid duplication
 
 2. **Generate tasks.md**: Use `.claude/templates/tasks.md` as structure, fill with:
-   - Phase 1+: One phase per project
-   - Each phase includes implementation tasks only
+   - Generate tasks organized by Project (see Task Generation Rules below)
+   - Project-specific phases (P1, P2, P3...): no mixing projects and no separated phases for single project
+   - Each project includes implementation tasks only
+   - Each task must be specific enough that an LLM can complete it without additional context
    - Final Phase: Polish & cross-cutting concerns
    - All tasks must follow the strict checklist format (see Task Generation Rules below)
    - Clear file paths for each task
    - Dependencies section showing project completion order
-
-The tasks.md should be immediately executable - each task must be specific enough that an LLM can complete it without additional context.
 
 ## Task Generation Rules
 
@@ -52,7 +51,7 @@ Every task MUST strictly follow this format:
 2. **Description**: Clear action with exact file path
    - File paths should use forward slashes `/` even on Windows
    - File paths should be surrounded by backticks `` ` `` for clarity
-3. `[New]` or `[Update]` designation
+3. `[New]` or `[Update]` or `[Remove]` designation
 
 **Examples**:
 
@@ -68,5 +67,5 @@ Every task MUST strictly follow this format:
 
 - Each project (P1, P2, P3...) gets its own phase
 - Each project section should contains only backend or frontend tasks as applicable, not mixed
-- Within each project phase, group tasks by component type
+- Within each project, group tasks by component type
 - Each Service / Repository / Manager / Page should be in separated section

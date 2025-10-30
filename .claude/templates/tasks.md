@@ -25,7 +25,7 @@ description: Task list template for feature implementation.
 
 ### [Service] / [Repository] / [Manager]
 
-- [ ] [Service] in `src/api-logic/Services/[Service].cs` [New/Update]
+- [ ] [Service] in `src/api/Services/[Service].cs` [New/Update]
   - Implement [Interface] <!-- if applicable -->
     - [ReturnType] [Method]([ParamType] [param]) <!-- repeat as needed, only if interface is new -->
   - [ReturnType] [Method]([ParamType] [param]) <!-- repeat as needed -->
@@ -38,12 +38,17 @@ description: Task list template for feature implementation.
   - Request: [RequestDto] <!-- if no DTO - replace RequestDto with request properties -->
   - Response: [ResponseDto] <!-- if no DTO - replace ResponseDto with response properties -->
   - Calls [Service].[Method]([param]) <!-- if applicable, repeat as needed -->
-  - Used by page/component: `[Page/Component]` <!-- if applicable, repeat as needed -->
+  - Used by: `[Page/Component]` <!-- if applicable, repeat as needed -->
 
 ### Models / DTOs / Entities
 
-- [ ] [Model] in `src/api-logic/Models/[Model].cs` [New/Update]
-  - props: [prop1], [prop2] <!-- repeat as needed -->
+- [ ] [Model] in `src/api/Models/[Model].cs` [New/Update]
+  - Properties: [prop1], [prop2] <!-- repeat as needed -->
+
+### Database Migration
+
+- [ ] [Table] in `src/api/Entities/[Table].cs` [New/Update/Remove]
+  - Columns: [Column1], [Column2] <!-- if applicable, repeat as needed -->
 
 ### [Page] (Frontend)
 

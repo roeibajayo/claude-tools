@@ -26,6 +26,8 @@ STRICTLY READ-ONLY: Do not modify any files.
 - Avoid HOW to implement (No mention of frameworks, languages, databases, or tools).
 - Written for business stakeholders, not developers.
 - Describe outcomes from user/business perspective, not system internals.
+- Describe user/logic flows, if applicable.
+- Be specific about features or functionality requested.
 - DO NOT create any checklists that are embedded in the spec. That will be a separate command.
 - Be concise, clear, short and to the point.
 - Highlight any specific requirements or constraints mentioned by the user.
@@ -38,9 +40,7 @@ STRICTLY READ-ONLY: Do not modify any files.
 - Fix user typographical or grammatical errors.
 - ALWAYS output in English only, no matter the input language.
 
-## Examples of reasonable defaults
-
-don't ask about these:
+### Disallowed Details
 
 - Data retention: Industry-standard practices for the domain.
 - Performance targets: Standard web/mobile app expectations unless specified.
@@ -48,7 +48,7 @@ don't ask about these:
 - Authentication method: Standard session-based or OAuth2 for web apps.
 - Integration patterns: RESTful APIs unless specified otherwise.
 
-## Bad Examples
+### Bad Examples
 
 - Output containing implementation details (e.g., "use React for frontend").
 - Output focusing on technical specifications (e.g., "the API should return JSON").
@@ -66,7 +66,7 @@ don't ask about these:
 - "React components render efficiently" (framework-specific).
 - "Redis cache hit rate above 80%" (technology-specific).
 
-## Good Example
+### Good Example
 
 <user-request>
 i want to add commit button to Git Changes tab
