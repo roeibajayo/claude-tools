@@ -5,21 +5,39 @@ description: Task list template for feature implementation.
 # Tasks: [FEATURE NAME]
 
 <!--
-  ============================================================================
   IMPORTANT: The tasks below are SAMPLE TASKS for illustration purposes only.
 
   - You MUST replace these with actual tasks
   - Delete component sections (Models, DTOs, etc.) that aren't needed for a project
 
   DO NOT keep these sample tasks in the generated tasks.md file.
-  ============================================================================
 !-->
 
 ## Feature Overview
 
 <!-- Short description of the feature to be implemented, max 2 lines -->
 
+### [Flow]
+
+<!--
+  OPTIONAL: If applicable, describe user/logic flows involved in the feature.
+  Repeat as needed for multiple flows.
+  Delete this section if not needed.
+
+  Example:
+  ### User Registration Flow
+  1. User navigates to `Registration` page
+  2. User fills out registration form
+  3. User submits form
+  4. System validates input and creates user account
+  5. Call `SendWelcomeEmail` endpoint to send welcome email
+-->
+
 ## Phase 1: [Project Title] (P1)
+
+Load skills using Skill tool: <!-- DELETE this line if not applicable -->
+
+- `[Skill]` <!-- repeat as needed -->
 
 <!-- DELETE sections below that aren't needed for this project -->
 
@@ -55,7 +73,8 @@ description: Task list template for feature implementation.
 - [ ] [Page] in `src/client/src/pages/[Section]/[Page].tsx` [New/Update]
   - Route: `/[route-path]`
   - Hook: use[Page] in `src/client/src/hooks/use[Page].ts`
-    - Calls Services: [Service1], [Service2] <!-- if applicable, repeat as needed -->
+    - Methods: [method1], [method2] <!-- repeat as needed -->
+    - Calls Endpoints: [Service1], [Service2] <!-- if applicable, repeat as needed -->
   - New Components: [Header], [Content], [Footer] <!-- if applicable, repeat as needed -->
   - Reuses Components: [Sidebar] <!-- if applicable, repeat as needed -->
   - New Shared Components: [Button] in `src/client/src/components/[Component].tsx` <!-- if applicable, repeat as needed -->

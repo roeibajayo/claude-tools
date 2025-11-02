@@ -12,24 +12,23 @@ $ARGUMENTS
 
 You **MUST** consider the user input before proceeding (if not empty).
 
-## Outline
+## Steps
 
-1. **Execute task generation workflow**:
-   - Validate task completeness (each project has all needed tasks, independently testable)
-   - Find existing components/services that can be extended or reused
-   - Detect similar features for pattern reuse
-   - Identify shared utilities and helpers
-   - Map dependencies to avoid duplication
-
-2. **Generate tasks.md**: Use `.claude/templates/tasks.md` as structure, fill with:
+1. **Generate tasks.md**: Use `.claude/templates/tasks.md` as structure, fill with:
    - Generate tasks organized by Project (see Task Generation Rules below)
    - Project-specific phases (P1, P2, P3...): no mixing projects and no separated phases for single project
    - Each project includes implementation tasks only
-   - Each task must be specific enough that an LLM can complete it without additional context
    - Final Phase: Polish & cross-cutting concerns
    - All tasks must follow the strict checklist format (see Task Generation Rules below)
    - Clear file paths for each task
    - Dependencies section showing project completion order
+
+2. **Review and finalize tasks.md**:
+   - Ensure clarity and completeness of tasks
+   - Ensure each task must be specific enough that an LLM can complete it without additional context
+   - Detect similar features for pattern reuse, if found - update tasks accordingly
+   - Find existing components/services that can be extended or reused, if found - update tasks accordingly
+   - Identify shared utilities and helpers, if found - update tasks accordingly
 
 ## Task Generation Rules
 
@@ -67,5 +66,4 @@ Every task MUST strictly follow this format:
 
 - Each project (P1, P2, P3...) gets its own phase
 - Each project section should contains only backend or frontend tasks as applicable, not mixed
-- Within each project, group tasks by component type
-- Each Service / Repository / Manager / Page should be in separated section
+- Within each project, group tasks by component type AS IN THE TEMPLATE
