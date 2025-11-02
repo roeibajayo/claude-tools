@@ -36,6 +36,8 @@ You **MUST** consider the user input before proceeding (if not empty).
 
 **Tests are OPTIONAL**: Only generate test tasks if explicitly requested in the feature specification or if user requests TDD approach.
 
+**Note**: if task is Update or Remove, add small description of why it is needed.
+
 ### Checklist Format (REQUIRED)
 
 Every task MUST strictly follow this format:
