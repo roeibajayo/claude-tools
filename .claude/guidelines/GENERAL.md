@@ -1,6 +1,6 @@
 # IMPORTANT General Guidelines
 
-- ALWAYS prefer to use Skill tool, if you have a doubt about whether to use a Skill or not - load the skill.
+- ALWAYS prefer to use Skill tool, even if you have a doubt about whether to load a Skill or not - you ABSOLUTELY MUST load the skill.
 - NEVER leave comments like "in the meantime, simulate...", "TODO: implement", "For now we'll just ... in a real implementation ..." etc. ALWAYS FULLY implement the user's request, whether the request is small or large, without leaving placeholders. If you need more context or information to complete the request, ask for it explicitly.
 - NEVER try to resolve build errors by removing the problematic files or code.
 - NEVER execute database queries, and don't apply any migrations or schema changes.
