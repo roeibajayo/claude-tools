@@ -89,10 +89,10 @@ Load skills using Skill tool: <!-- DELETE this line if not applicable -->
 - [ ] use[Feature] in `src/client/src/hooks/use[Feature].ts` [New/Update]
   - Returns { [state1], [method1] }
 
-### Tests
+### Unit Tests (AAA Pattern)
 
 - [ ] Unit test: [Service] in `tests/[Project].Tests/Services/[Service]Tests.cs` [New/Update]
-  - [TestMethod]: short description <!-- repeat as needed -->
+  - [TestMethod] <!-- repeat as needed -->
 
 ---
 
