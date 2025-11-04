@@ -108,5 +108,3 @@ Load skills using Skill tool: <!-- DELETE this line if not applicable -->
 - [ ] Full frontend checks: `cd src/client && npx tsc --noEmit --skipLibCheck --project tsconfig.app.json && npx eslint .` (for example)
 - [ ] Validate all tests pass
 - [ ] Format files: `cd src/client && npx prettier <files> --write` (for example)
-- [ ] Create feature documentation in `docs/features/[feature-name].md` with architecture overview and usage instructions
-- [ ] Optimize created feature documentation using the `doc-optimizer` Skill

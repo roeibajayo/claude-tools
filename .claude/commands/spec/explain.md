@@ -19,11 +19,17 @@ The goal here is to ensure you fully understand the user's request.
 Read files as needed to clarify the request.
 The final output should be a explanation of the user's request, not an implementation plan.
 STRICTLY READ-ONLY: Do not modify any files.
-**Save explanation in feature.md file**.
+
+## Command Checklist
+
+- [ ] Clean all files from `temp-spec/` directory.
+- [ ] Produce a concise explanation of the user's request, following the `Explanation Guidelines` below, save in `temp-spec/explain.md`.
+- [ ] Ensure no disallowed details are included - remove if found.
+- [ ] Ensure no bad examples are present - remove if found.
 
 ## Explanation Guidelines
 
-- Focus on **WHAT** users need and **WHY**.
+- Ultra think and focus on **WHAT** users need and **WHY**.
 - Avoid HOW to implement (No mention of frameworks, languages, databases, or tools).
 - Written for business stakeholders, not developers.
 - Describe outcomes from user/business perspective, not system internals.
@@ -40,6 +46,7 @@ STRICTLY READ-ONLY: Do not modify any files.
 - DO NOT include current state information.
 - Fix user typographical or grammatical errors.
 - ALWAYS output in English only, no matter the input language.
+- Format the explanation in markdown.
 
 ### Disallowed Details
 

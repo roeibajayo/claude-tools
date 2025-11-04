@@ -12,29 +12,29 @@ $ARGUMENTS
 
 You **MUST** consider the user input before proceeding (if not empty).
 
-## Steps
+## Tasks Generation Guidelines
 
-1. **Generate tasks.md**: Use `.claude/templates/tasks.md` as structure, fill with:
-   - Generate tasks organized by Project (see Task Generation Rules below)
-   - Project-specific phases (P1, P2, P3...): no mixing projects and no separated phases for single project
-   - Each project includes implementation tasks only
-   - Final Phase: Polish & cross-cutting concerns
-   - All tasks must follow the strict checklist format (see Task Generation Rules below)
-   - Clear file paths for each task
-   - Dependencies section showing project completion order
+**Use `.claude/templates/tasks.md` as structure**
 
-2. **Review and finalize tasks.md**:
-   - Ensure clarity and completeness of tasks
-   - Ensure each task must be specific enough that an LLM can complete it without additional context
-   - Detect similar features for pattern reuse, if found - update tasks accordingly
-   - Find existing components/services that can be extended or reused, if found - update tasks accordingly
-   - Identify shared utilities and helpers, if found - update tasks accordingly
+- Task must be specific enough that an LLM can complete it without additional context
+- Project-specific phases (P1, P2, P3...): no mixing projects and no separated phases for single project
+- Each project includes implementation tasks only
+- Clear file paths for each task
+- Generate tasks organized by Project, following the Task Generation Rules below
+- Final Phase: Polish & cross-cutting concerns
+
+## Command Checklist
+
+- [ ] Ensure `temp-spec/explain.md` is loaded to context, if exists.
+- [ ] Generate `temp-spec/tasks.md` following the `Tasks Generation` guidelines above.
+- [ ] Ensure every task meets existing project conventions for naming, structure, imports - update tasks accordingly.
+- [ ] Review every task for new Component or Service to detect and reuse common patterns across files, if found - update tasks accordingly.
+- [ ] Think for new Components and Services tasks to detect similar existing components, if found - update tasks accordingly to extend/reuse them.
+- [ ] Analyze for identify shared utilities and helpers, if found - update tasks accordingly
 
 ## Task Generation Rules
 
 **CRITICAL**: Tasks MUST be organized by Project to enable independent implementation and testing.
-
-**Tests are OPTIONAL**: Only generate test tasks if explicitly requested in the feature specification or if user requests TDD approach.
 
 **Note**: if task is Update or Remove, add small description of why it is needed.
 
