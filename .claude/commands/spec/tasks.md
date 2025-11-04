@@ -17,6 +17,7 @@ You **MUST** consider the user input before proceeding (if not empty).
 **Use `.claude/templates/tasks.md` as structure**
 
 - Task must be specific enough that an LLM can complete it without additional context
+- Each task should be a single, atomic action
 - Project-specific phases (P1, P2, P3...): no mixing projects and no separated phases for single project
 - Each project includes implementation tasks only
 - Clear file paths for each task
@@ -25,13 +26,15 @@ You **MUST** consider the user input before proceeding (if not empty).
 
 ## Command Checklist
 
+- [ ] Search and load all general (server and client) guidelines markdown files to context, including `.claude/guidelines/GENERAL.md`.
+- [ ] Load guidelines skills to context, specifically `dotnet-guidelines` and `react-guidelines`, if relevant to the tasks.
 - [ ] Ensure `temp-spec/explain.md` is loaded to context, if exists.
 - [ ] Ensure `temp-spec/tech-explain.md` is loaded to context, if exists.
 - [ ] Generate `temp-spec/tasks.md` following the `Tasks Generation` guidelines above.
 
 ## Task Generation Rules
 
-**CRITICAL**: Tasks MUST be organized by Project to enable independent implementation and testing.
+**CRITICAL**: Tasks MUST be organized by Project to enable independent implementation.
 
 **Note**: if task is Update or Remove, add small description of why it is needed.
 
@@ -54,20 +57,12 @@ Every task MUST strictly follow this format:
 2. **Description**: Clear action with exact file path
    - File paths should use forward slashes `/` even on Windows
    - File paths should be surrounded by backticks `` ` `` for clarity
-3. `[New]` or `[Update]` or `[Remove]` designation
-
-**Examples**:
-
-- ✅ CORRECT: `- [ ] Create project structure per implementation plan`
-- ✅ CORRECT: ``- [ ] Implement authentication middleware in `src/middleware/auth.py` ``
-- ✅ CORRECT: ``- [ ] Create User model in `src/models/user.py` ``
-- ✅ CORRECT: ``- [ ] Implement UserService in `src/services/user_service.py` ``
-- ❌ WRONG: `Create model` (missing checkbox)
-- ❌ WRONG: `- [ ] Create model` (missing file path)
-- ❌ WRONG: `- [ ] Create User model in src/models/user.py` (missing backticks around file path)
+3. Indicate [New], [Update], or [Delete] for each task
 
 ### Task Organization
 
 - Each project (P1, P2, P3...) gets its own phase
 - Each project section should contains only backend or frontend tasks as applicable, not mixed
 - Within each project, group tasks by component type AS IN THE TEMPLATE
+
+@.claude/guidelines/TASKS-CREATION.md

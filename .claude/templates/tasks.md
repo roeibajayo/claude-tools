@@ -79,12 +79,12 @@ Load skills using Skill tool: <!-- DELETE this line if not applicable -->
   - Reuses Components: [Sidebar] <!-- if applicable, repeat as needed -->
   - New Shared Components: [Button] in `src/client/src/components/[Component].tsx` <!-- if applicable, repeat as needed -->
 
-### Shared Components
+### Shared React Components
 
 - [ ] [Component] in `src/client/src/components/[Component].tsx` [New/Update]
   - Props: [prop1], [prop2] <!-- repeat as needed -->
 
-### Shared Hooks
+### Shared React Hooks
 
 - [ ] use[Feature] in `src/client/src/hooks/use[Feature].ts` [New/Update]
   - Returns { [state1], [method1] }
@@ -106,5 +106,5 @@ Load skills using Skill tool: <!-- DELETE this line if not applicable -->
 - [ ] Refactor .NET Services and Managers using `dotnet-refactor` Skill
 - [ ] Full backend build: `dotnet build` (for example)
 - [ ] Full frontend checks: `cd src/client && npx tsc --noEmit --skipLibCheck --project tsconfig.app.json && npx eslint .` (for example)
-- [ ] Validate all tests pass
+- [ ] Validate all unit tests pass
 - [ ] Format files: `cd src/client && npx prettier <files> --write` (for example)
