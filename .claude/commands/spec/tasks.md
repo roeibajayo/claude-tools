@@ -20,7 +20,7 @@ You **MUST** consider the user input before proceeding (if not empty).
 - Project-specific phases (P1, P2, P3...): no mixing projects and no separated phases for single project
 - Each project includes implementation tasks only
 - Clear file paths for each task
-- Generate tasks organized by Project, following the Task Generation Rules below
+- Generate tasks organized by Project, following the `Task Generation Rules` below
 - Final Phase: Polish & cross-cutting concerns
 
 ## Command Checklist
@@ -34,6 +34,11 @@ You **MUST** consider the user input before proceeding (if not empty).
 **CRITICAL**: Tasks MUST be organized by Project to enable independent implementation and testing.
 
 **Note**: if task is Update or Remove, add small description of why it is needed.
+
+### Tasks NEVER includes
+
+- Code snippets
+- Line numbers
 
 ### Checklist Format (REQUIRED)
 
