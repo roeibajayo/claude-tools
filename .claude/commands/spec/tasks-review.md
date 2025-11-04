@@ -13,13 +13,14 @@ description: Review tasks.md file.
 - [ ] Review every task for new Component or Service to detect and reuse common patterns across files, if found - update tasks accordingly.
 - [ ] Think for new Components and Services tasks to detect similar existing components, if found - update tasks accordingly to extend/reuse them.
 - [ ] Analyze for identify shared utilities and helpers, if found - update tasks accordingly
-- [ ] Analyze changes to extract GENERIC review patterns and anti-patterns for future review improvements (NOT SPECIFIC TO THIS FEATURE), if found - save in `temp-spec/tasks-review-patterns.md`.
 
 ## Review Patterns (Good Practices)
 
 ### 1. Verify All Referenced Components Exist
 
-**Pattern**: Before approving tasks, verify that all mentioned interfaces, classes, methods, and files actually exist in the codebase.
+**Pattern**:
+Before approving tasks, verify that all mentioned interfaces, classes, methods, and files actually exist in the codebase.
+When tasks reference DTOs or request objects, verify that the properties mentioned actually exist.
 
 **Example Checks**:
 
@@ -49,5 +50,22 @@ async executeStepTask(stepId: number, sessionId: number): Promise<Response> {
   return fetchPost(`/api/workflows/steps/${stepId}/execute-task`, { sessionId });
 }
 ```
+
+### 3. Mixing Implementation Details with Task Descriptions
+
+**Anti-Pattern**: Including full code snippets or exact syntax in task descriptions.
+
+**Example from Clear Context review**:
+
+- Original: Full constructor call with all parameters
+- Revised: Key parameters and pattern reference
+
+**Good Practice**:
+
+- Remove code snippets from tasks
+- Focus on intent and required values
+- Reference patterns instead of prescribing syntax
+
+---
 
 @.claude/guidelines/TASKS-CREATION.md

@@ -65,4 +65,6 @@ Every task MUST strictly follow this format:
 - Each project section should contains only backend or frontend tasks as applicable, not mixed
 - Within each project, group tasks by component type AS IN THE TEMPLATE
 
+---
+
 @.claude/guidelines/TASKS-CREATION.md
