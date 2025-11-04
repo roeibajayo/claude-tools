@@ -28,10 +28,6 @@ You **MUST** consider the user input before proceeding (if not empty).
 - [ ] Ensure `temp-spec/explain.md` is loaded to context, if exists.
 - [ ] Ensure `temp-spec/tech-explain.md` is loaded to context, if exists.
 - [ ] Generate `temp-spec/tasks.md` following the `Tasks Generation` guidelines above.
-- [ ] Ensure every task meets existing project conventions for naming, structure, imports - update tasks accordingly.
-- [ ] Review every task for new Component or Service to detect and reuse common patterns across files, if found - update tasks accordingly.
-- [ ] Think for new Components and Services tasks to detect similar existing components, if found - update tasks accordingly to extend/reuse them.
-- [ ] Analyze for identify shared utilities and helpers, if found - update tasks accordingly
 
 ## Task Generation Rules
 
