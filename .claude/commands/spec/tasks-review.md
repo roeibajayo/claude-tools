@@ -13,4 +13,4 @@ description: Review tasks.md file.
 - [ ] Review every task for new Component or Service to detect and reuse common patterns across files, if found - update tasks accordingly.
 - [ ] Think for new Components and Services tasks to detect similar existing components, if found - update tasks accordingly to extend/reuse them.
 - [ ] Analyze for identify shared utilities and helpers, if found - update tasks accordingly
-- [ ] Analyze changes to extract review patterns and anti-patterns for future improvements, save in `temp-spec/tasks-review-patterns.md`.
+- [ ] Analyze changes to extract GENERIC review patterns and anti-patterns for future review improvements (NOT SPECIFIC TO THIS REVIEW), save in `temp-spec/tasks-review-patterns.md`.
