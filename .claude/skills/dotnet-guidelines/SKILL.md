@@ -2,7 +2,7 @@
 name: dotnet-guidelines
 description:
   dotnet coding guidelines and best practices. MUST follow these rules.
-  Use when reviewing or writing .NET code.
+  Use when reviewing or writing .NET code or tasks.
 ---
 
 # IMPORTANT Server Guidelines
@@ -27,3 +27,44 @@ description:
 - ALWAYS use Data Transfer Objects (DTO) for API communication, validated with attributes.
 - ALWAYS use `x` as a parameter name in lambdas and anonymous functions.
 - If any backend changes are made, run `dotnet build` in the root and ensure no build errors for the entire solution.
+
+## Code Organization Principles
+
+### Avoid Unnecessary Wrapper Methods
+
+**Rule**: Do NOT create wrapper methods for specific cases that simply call another method with fixed parameters. Call the base method directly instead.
+
+**Example - DON'T**:
+
+```csharp
+// ❌ Don't create this wrapper method for a single use case:
+public async Task<int> CreateAgentHistoryClearedMessageAsync(int sessionId)
+{
+    var request = new CreateMessageRequest(
+        Type: MessageType.System,
+        Content: "Agent history has been cleared",
+        Status: MessageStatus.Done
+    );
+    return await CreateMessageAsync(sessionId, request);
+}
+```
+
+**Example - DO**:
+
+```csharp
+// ✅ Instead, call CreateMessageAsync directly where needed:
+await messageService.CreateMessageAsync(
+    sessionId,
+    new CreateMessageRequest(
+        MessageType.System,
+        "Agent history has been cleared",
+        MessageStatus.Done
+    )
+);
+```
+
+**When to create a helper method**:
+
+- When there's complex logic beyond just parameter mapping
+- When the same combination is used in multiple places (3+ times)
+- When the method provides meaningful abstraction or validation

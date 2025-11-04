@@ -2,7 +2,7 @@
 name: react-guidelines
 description:
   React coding guidelines and best practices. MUST follow these rules.
-  Use when reviewing or writing React code.
+  Use when reviewing or writing React code or tasks.
 ---
 
 # IMPORTANT Frontend Guidelines
