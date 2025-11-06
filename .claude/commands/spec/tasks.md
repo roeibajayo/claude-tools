@@ -14,15 +14,8 @@ You **MUST** consider the user input before proceeding (if not empty).
 
 ## Tasks Generation Guidelines
 
-**Use `.claude/templates/tasks.md` as structure**
-
-- Task must be specific enough that an LLM can complete it without additional context
-- Each task should be a single, atomic action
-- Project-specific phases (P1, P2, P3...): no mixing projects and no separated phases for single project
-- Each project includes implementation tasks only
-- Clear file paths for each task
-- Generate tasks organized by Project, following the `Task Generation Rules` below
-- Final Phase: Polish & cross-cutting concerns
+Your objective is to generate a comprehensive `tasks.md` file that outlines all necessary implementation steps.
+Use **MUST** use `../templates/tasks.md` as structure, following the `Task Generation Rules` and `Tasks Creation Guidelines`.
 
 ## Command Checklist
 
@@ -38,18 +31,10 @@ You **MUST** consider the user input before proceeding (if not empty).
 
 **Note**: if task is Update or Remove, add small description of why it is needed.
 
-### Tasks NEVER includes
+### tasks.md NEVER includes:
 
 - Code snippets
 - Line numbers
-
-### Checklist Format (REQUIRED)
-
-Every task MUST strictly follow this format:
-
-```text
-- [ ] Description with file path
-```
 
 **Format Components**:
 
@@ -67,4 +52,4 @@ Every task MUST strictly follow this format:
 
 ---
 
-@.claude/guidelines/TASKS-CREATION.md
+@../guidelines/TASKS-CREATION.md

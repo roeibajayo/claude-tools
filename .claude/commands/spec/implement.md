@@ -14,7 +14,7 @@ You **MUST** consider the user input before proceeding (if not empty).
 
 ## Command Checklist
 
-- [ ] Search and load all general (server and client) guidelines markdown files to context, including `.claude/guidelines/GENERAL.md`.
+- [ ] Search (`*/guidelines/*.md`) and load all general (server and client) or relevant guidelines markdown files to context, including `.claude/guidelines/GENERAL.md`.
 - [ ] Load guidelines skills to context, specifically `dotnet-guidelines` and `react-guidelines`, if relevant to the tasks.
 - [ ] Ensure `temp-spec/tasks.md` is loaded to context. If missing or incomplete STOP and suggest running `/spec:tasks` first
 - [ ] Implement all tasks from `temp-spec/tasks.md`. Follow the `Progress Tracking and Reporting` guidelines below
