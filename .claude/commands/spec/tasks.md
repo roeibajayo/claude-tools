@@ -15,7 +15,9 @@ You **MUST** consider the user input before proceeding (if not empty).
 ## Tasks Generation Guidelines
 
 Your objective is to generate a comprehensive `tasks.md` file that outlines all necessary implementation steps.
-Use **MUST** use `../templates/tasks.md` as structure, following the `Task Generation Rules` and `Tasks Creation Guidelines`.
+Use **MUST** use `../../templates/tasks.md` as structure, following the `Task Generation Rules` and `Tasks Creation Guidelines`.
+**DO NOT DEVIATE FROM THE TEMPLATE STRUCTURE**.
+**DO NOT** generate any docs (.md files) file other than `tasks.md`.
 
 ## Command Checklist
 
@@ -23,18 +25,11 @@ Use **MUST** use `../templates/tasks.md` as structure, following the `Task Gener
 - [ ] Load guidelines skills to context, specifically `dotnet-guidelines` and `react-guidelines`, if relevant to the tasks.
 - [ ] Ensure `temp-spec/explain.md` is loaded to context, if exists.
 - [ ] Ensure `temp-spec/tech-explain.md` is loaded to context, if exists.
-- [ ] Generate `temp-spec/tasks.md` following the `Tasks Generation` guidelines above.
+- [ ] Generate `temp-spec/tasks.md` following the `Task Generation Rules` and `Tasks Creation Guidelines`.
 
 ## Task Generation Rules
 
 **CRITICAL**: Tasks MUST be organized by Project to enable independent implementation.
-
-**Note**: if task is Update or Remove, add small description of why it is needed.
-
-### tasks.md NEVER includes:
-
-- Code snippets
-- Line numbers
 
 **Format Components**:
 
@@ -52,4 +47,4 @@ Use **MUST** use `../templates/tasks.md` as structure, following the `Task Gener
 
 ---
 
-@../guidelines/TASKS-CREATION.md
+@../../guidelines/TASKS-CREATION.md

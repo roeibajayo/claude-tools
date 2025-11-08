@@ -43,7 +43,7 @@ Load skills using Skill tool: <!-- DELETE this line if not applicable -->
 
 ### [Service] / [Repository] / [Manager]
 
-- [ ] [Service] in `src/api/Services/[Service].cs` [New/Update]
+- [ ] `[Service]` in `path/to/[Service].cs` [New/Update]
   - Implement [Interface] <!-- if applicable -->
     - [ReturnType] [Method]([ParamType] [param]) <!-- repeat as needed, only if interface is new -->
   - [ReturnType] [Method]([ParamType] [param]) <!-- repeat as needed -->
@@ -51,7 +51,7 @@ Load skills using Skill tool: <!-- DELETE this line if not applicable -->
 
 ### Endpoints
 
-- [ ] [Endpoint] in `src/api/Endpoints/[Endpoint]Endpoint.cs` [New/Update]
+- [ ] `[Endpoint]` in `path/to/[Endpoint].cs` [New/Update]
   - Route: [HTTPMethod] `[resource-path]`
   - Request: [RequestDto] <!-- if no DTO - replace RequestDto with request properties -->
   - Response: [ResponseDto] <!-- if no DTO - replace ResponseDto with response properties -->
@@ -60,39 +60,39 @@ Load skills using Skill tool: <!-- DELETE this line if not applicable -->
 
 ### Models / DTOs / Entities
 
-- [ ] [Model] in `src/api/Models/[Model].cs` [New/Update]
+- [ ] `[Model]` in `path/to/[Model].cs` [New/Update]
   - Properties: [prop1], [prop2] <!-- repeat as needed -->
 
 ### Database Migration
 
-- [ ] [Table] in `src/api/Entities/[Table].cs` [New/Update/Remove]
+- [ ] `[Table]` in `path/to/[Table].cs` [New/Update/Remove]
   - Columns: [Column1], [Column2] <!-- if applicable, repeat as needed -->
 
 ### [Page] (Frontend)
 
-- [ ] [Page] in `src/client/src/pages/[Section]/[Page].tsx` [New/Update]
+- [ ] `[Page]` in `path/to/[Page]/index.tsx` [New/Update]
   - Route: `/[route-path]`
-  - Hook: use[Page] in `src/client/src/hooks/use[Page].ts`
+  - Hook: `use[Page]` in `path/to/[Page]/use[Page].ts`
     - Methods: [method1], [method2] <!-- repeat as needed -->
     - Calls Endpoints: [Service1], [Service2] <!-- if applicable, repeat as needed -->
   - New Components: [Header], [Content], [Footer] <!-- if applicable, repeat as needed -->
   - Reuses Components: [Sidebar] <!-- if applicable, repeat as needed -->
-  - New Shared Components: [Button] in `src/client/src/components/[Component].tsx` <!-- if applicable, repeat as needed -->
+  - New Shared Components: [Button] in `path/to/[Component].tsx` <!-- if applicable, repeat as needed -->
 
 ### Shared React Components
 
-- [ ] [Component] in `src/client/src/components/[Component].tsx` [New/Update]
+- [ ] `[Component]` in `path/to/[Component].tsx` [New/Update]
   - Props: [prop1], [prop2] <!-- repeat as needed -->
 
 ### Shared React Hooks
 
-- [ ] use[Feature] in `src/client/src/hooks/use[Feature].ts` [New/Update]
+- [ ] `use[Hook]` in `path/to/[Hook].ts` [New/Update]
   - Returns { [state1], [method1] }
 
-### Unit Tests (AAA Pattern)
+### Unit Tests
 
-- [ ] Unit test: [Service] in `tests/[Project].Tests/Services/[Service]Tests.cs` [New/Update]
-  - [TestMethod] <!-- repeat as needed -->
+- [ ] `[Service]` in `path/to/[Service].cs` [New/Update]
+  - [TestMethod] <!-- only unit test name, no additional context or info. repeat as needed -->
 
 ---
 

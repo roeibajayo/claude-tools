@@ -27,3 +27,4 @@ You **MUST** consider the user input before proceeding (if not empty).
 - Do NOT report after each task completion
 - Only report errors with context and next steps if blocked
 - Report final status with summary of all completed work
+- Unit tests must implement the AAA pattern (Arrange, Act, Assert). Comment // Arrange, // Act, // Assert in the test methods

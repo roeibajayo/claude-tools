@@ -31,7 +31,8 @@ STRICTLY READ-ONLY: Do not modify any files.
 ## Explanation Guidelines
 
 - Ultra think and focus on **HOW** to implement the user's needs in high-level technical terms, not business terms or implementation details.
-- Written by Team Leader for his developers.
+- Written by Team Leader for his developers, to clarify what needs to be built.
+- Should includes ALL details to extract tasks for implementation.
 - No mention of frameworks, languages, databases, or tools.
 - Be specific about features or functionality requested.
 - DO NOT create any checklists that are embedded in the spec. That will be a separate command.

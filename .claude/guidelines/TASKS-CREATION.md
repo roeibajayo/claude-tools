@@ -3,6 +3,8 @@
 ## Output file guidelines
 
 - Task must be specific enough that an LLM can complete it without additional context
+- Task NEVER includes Code snippets or line numbers
+- Every task MUST meet existing project conventions for naming, structure, imports
 - Each task should be a single, atomic action
 - Project-specific phases (P1, P2, P3...): no mixing projects and no separated phases for single project
 - Each project includes implementation tasks only

@@ -68,4 +68,4 @@ async executeStepTask(stepId: number, sessionId: number): Promise<Response> {
 
 ---
 
-@../guidelines/TASKS-CREATION.md
+@../../guidelines/TASKS-CREATION.md
