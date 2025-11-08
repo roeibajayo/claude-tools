@@ -39,6 +39,10 @@ Load skills using Skill tool: <!-- DELETE this line if not applicable -->
 
 - `[Skill]` <!-- repeat as needed -->
 
+Load guidelines: <!-- DELETE this line if not applicable -->
+
+- `path/to/guideline.md` <!-- repeat as needed -->
+
 <!-- DELETE sections below that aren't needed for this project -->
 
 ### [Service] / [Repository] / [Manager]
