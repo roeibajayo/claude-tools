@@ -6,13 +6,13 @@ description: Review tasks.md file.
 
 ## Command Checklist
 
-- [ ] Ensure `temp-spec/tasks.md` is loaded to context, if not exists then STOP and suggest running `/spec:tasks` first.
-- [ ] Ensure **ALL** methods/endpoints/hooks etc mentioned in `tasks.md` actually exist in the codebase.
-- [ ] Ensure Tasks NEVER includes Code snippets or line numbers.
-- [ ] Ensure every task meets existing project conventions for naming, structure, imports - update tasks accordingly.
-- [ ] Review every task for new Component or Service to detect and reuse common patterns across files, if found - update tasks accordingly.
-- [ ] Think for new Components and Services tasks to detect similar existing components, if found - update tasks accordingly to extend/reuse them.
+- [ ] Ensure `temp-spec/tasks.md` is loaded to context, if not exists then STOP and suggest running `/spec:tasks` first
+- [ ] Ensure **ALL** methods/endpoints/hooks etc mentioned in `tasks.md` actually exist in the codebase
+- [ ] Ensure **ALL** tasks meet existing project conventions for naming, structure, imports - update tasks accordingly
+- [ ] Review every task for new Component or Service to detect and reuse common patterns across files, if found - update tasks accordingly
+- [ ] Think for new Components and Services tasks to detect similar existing components, if found - update tasks accordingly to extend/reuse them
 - [ ] Analyze for identify shared utilities and helpers, if found - update tasks accordingly
+- [ ] Ensure **ALL** tasks following the `Tasks Creation Guidelines`
 
 ## Review Patterns (Good Practices)
 
@@ -50,21 +50,6 @@ async executeStepTask(stepId: number, sessionId: number): Promise<Response> {
   return fetchPost(`/api/workflows/steps/${stepId}/execute-task`, { sessionId });
 }
 ```
-
-### 3. Mixing Implementation Details with Task Descriptions
-
-**Anti-Pattern**: Including full code snippets or exact syntax in task descriptions.
-
-**Example from Clear Context review**:
-
-- Original: Full constructor call with all parameters
-- Revised: Key parameters and pattern reference
-
-**Good Practice**:
-
-- Remove code snippets from tasks
-- Focus on intent and required values
-- Reference patterns instead of prescribing syntax
 
 ---
 

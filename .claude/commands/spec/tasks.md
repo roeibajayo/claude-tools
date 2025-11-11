@@ -15,7 +15,7 @@ You **MUST** consider the user input before proceeding (if not empty).
 ## Tasks Generation Guidelines
 
 Your objective is to generate a comprehensive `tasks.md` file that outlines all necessary implementation steps.
-Use **MUST** use `../../templates/tasks.md` as structure, following the `Tasks Creation Guidelines`.
+Use **MUST** use `.claude/templates/tasks.md` as structure, following the `Tasks Creation Guidelines`.
 **DO NOT DEVIATE FROM THE TEMPLATE STRUCTURE**.
 **DO NOT** generate any docs (.md files) file other than `tasks.md`.
 
