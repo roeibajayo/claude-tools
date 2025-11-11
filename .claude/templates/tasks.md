@@ -98,6 +98,10 @@ Load guidelines: <!-- DELETE this line if not applicable -->
 - [ ] `[Service]` in `path/to/[Service].cs` [New/Update]
   - [TestMethod] <!-- only unit test name, no additional context or info. repeat as needed -->
 
+### Other Tasks <!-- project file, docs, scripts, configurations etc.. -->
+
+- [ ] `[Entity]` in `path/to/[Entity].cs` [New/Update] <!-- repeat as needed -->
+
 ---
 
 <!-- Copy phase template above to add more user stories -->

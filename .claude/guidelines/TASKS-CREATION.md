@@ -1,5 +1,13 @@
 # Tasks Creation Guidelines
 
+**CRITICAL**: Tasks MUST be organized by Project to enable independent implementation.
+
+### Task Organization
+
+- Each project (P1, P2, P3...) gets its own phase
+- Each project section should contains only backend or frontend tasks as applicable, not mixed
+- Within each project, group tasks by component type AS IN THE TEMPLATE
+
 ## Output file guidelines
 
 - Task must be specific enough that an LLM can complete it without additional context
@@ -16,6 +24,12 @@
 ### 1. Code Snippets in Tasks
 
 **Bad**: Including code snippets or line numbers in task descriptions.
+
+**Example Bad**:
+
+- "Use `messageService.CreateMessageAsync(sessionId, new CreateMessageRequest(...))` to create system message"
+- "In `Logic/Services/SessionService.cs` at line 150, add..."
+- "call and WebApplication hosting logic from `src/host-wpf/MainWindow.xaml.cs` `InitializeServicesAsync` method (lines 53-67)"
 
 **Good Practice**: Describe what needs to be done, not how to do it with specific code.
 
@@ -111,6 +125,60 @@
 - Describe UI behavior (show/hide/enable/disable)
 - Reference existing patterns in the same component
 - Let implementer handle conditional logic syntax
+
+### 12. Group Miscellaneous Tasks Appropriately
+
+**Bad**: Scattering miscellaneous tasks throughout the task list.
+
+**Good Practice**: Create a dedicated section for miscellaneous tasks (e.g., project files, documentation, scripts) at the end of the task list. Do not mix them with implementation tasks.
+
+### 13. Clear and Consistent Task Naming
+
+**Bad**: Vague or inconsistent task names that don't clearly indicate the action or location.
+
+**Good Practice**:
+
+- Use clear, descriptive names indicating what is being changed and where
+- Include key method/property names
+- Include file paths for new files
+
+### 14. Phased Task Organization
+
+**Bad**: Mixing backend, frontend, and tests in a single phase.
+
+**Good Practice**: Organize tasks into clear phases:
+
+- Phase 1: Backend changes
+- Phase 2: Frontend changes
+- Phase 3: Unit tests and polish
+
+### 15. Sections not from the Template file
+
+**Bad**: Including sections that are not mentioned in the template file.
+
+**Good Practice**: Only include sections that are in the template file. Delete any unnecessary sections.
+
+### 16. Tasks not matching the Template file
+
+**Bad**: Writing tasks that do not follow the structure or format of the template file.
+
+**Example Bad**:
+
+- "- [ ] [New] Create service configuration class `src/host-service/ServiceConfiguration.cs` with properties for URLs, environment, and service name" (New indicator is at the beginning instead of the end)
+- "- [ ] Create service configuration class `src/host-service/ServiceConfiguration.cs` with properties for URLs, environment, and service name [New]" (Task name including details)
+- "`[Entity]` in `path/to/[Entity].cs` [New/Update]" (Task does not start with "- [ ]")
+
+**Task name structure**: "- [ ] `[Entity]` in `path/to/[Entity].cs` [New/Update]"
+
+**Format Components**:
+
+1. **Checkbox**: ALWAYS start with `- [ ]` (markdown checkbox)
+2. **Entity Name**: Component or Entity name. Use backticks `` ` `` around the entity being changed
+3. **File Path**:
+   - File paths should use forward slashes `/` even on Windows
+   - File paths should be surrounded by backticks `` ` `` for clarity
+4. **Indicator**: Indicate [New], [Update], or [Delete] for each task
+5. **Task details** (optional): Task details like method names, properties, routes, etc. should be in indented bullets below the main task line
 
 ---
 
