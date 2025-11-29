@@ -67,11 +67,6 @@ Load guidelines: <!-- DELETE this line if not applicable -->
 - [ ] `[Model]` in `path/to/[Model].cs` [New/Update]
   - Properties: [prop1], [prop2] <!-- repeat as needed -->
 
-### Database Migration
-
-- [ ] `[Table]` in `path/to/[Table].cs` [New/Update/Remove]
-  - Columns: [Column1], [Column2] <!-- if applicable, repeat as needed -->
-
 ### [Page] (Frontend)
 
 - [ ] `[Page]` in `path/to/[Page]/index.tsx` [New/Update]
@@ -93,26 +88,32 @@ Load guidelines: <!-- DELETE this line if not applicable -->
 - [ ] `use[Hook]` in `path/to/[Hook].ts` [New/Update]
   - Returns { [state1], [method1] }
 
+### Other Tasks <!-- project file, docs, scripts, configurations etc.. -->
+
+- [ ] `[Entity]` in `path/to/[Entity].cs` [New/Update] <!-- repeat as needed -->
+
+### Database Migration <!-- if applicable -->
+
+- [ ] `[Table]` in `path/to/[Table].cs` [New/Update/Remove]
+  - Columns: [Column1], [Column2] <!-- repeat as needed -->
+- [ ] Create database migration using `dotnet ef migrations add [MigrationName]`
+
 ### Unit Tests
 
 - [ ] `[Service]` in `path/to/[Service].cs` [New/Update]
   - [TestMethod] <!-- only unit test name, no additional context or info. repeat as needed -->
 
-### Other Tasks <!-- project file, docs, scripts, configurations etc.. -->
-
-- [ ] `[Entity]` in `path/to/[Entity].cs` [New/Update] <!-- repeat as needed -->
-
----
-
-<!-- Copy phase template above to add more user stories -->
-
----
-
-## Phase N: Polish
+### Polish and Finalization <!-- examples only, adjust as needed -->
 
 - [ ] Refactor React Components using `react-page-refactor` Skill
 - [ ] Refactor .NET Services and Managers using `dotnet-refactor` Skill
-- [ ] Full backend build: `dotnet build` (for example)
-- [ ] Full frontend checks: `cd src/client && npx tsc --noEmit --skipLibCheck --project tsconfig.app.json && npx eslint .` (for example)
+- [ ] Full backend build: `dotnet build`
+- [ ] Full frontend checks: `cd src/client && npx tsc --noEmit --skipLibCheck --project tsconfig.app.json && npx eslint .`
 - [ ] Validate all unit tests pass
-- [ ] Format files: `cd src/client && npx prettier <files> --write` (for example)
+- [ ] Format files: `cd src/client && npx prettier <files> --write`
+
+---
+
+<!-- Copy phase template above to add more phases -->
+
+---

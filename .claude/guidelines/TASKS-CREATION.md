@@ -4,9 +4,11 @@
 
 ### Task Organization
 
-- Each project (P1, P2, P3...) gets its own phase
-- Each project section should contains only backend or frontend tasks as applicable, not mixed
-- Within each project, group tasks by component type AS IN THE TEMPLATE
+- Tasks grouped by Project (e.g., Frontend, Backend Presentation, Backend Logic)
+- Each project in its own phase
+- NEVER mix projects in a single phase
+- DO NOT separate phases for single project
+- Within each project, group tasks by component type **AS IN THE TEMPLATE**
 
 ## Output file guidelines
 
@@ -14,7 +16,7 @@
 - Task NEVER includes Code snippets or line numbers
 - Every task MUST meet existing project conventions for naming, structure, imports
 - Each task should be a single, atomic action
-- Project-specific phases (P1, P2, P3...): no mixing projects and no separated phases for single project
+- Project-specific phases (P1, P2, P3...)
 - Each project includes implementation tasks only
 - Use checkboxes for trackability
 - Indicate [New], [Update], or [Delete] for each task
@@ -150,7 +152,6 @@
 
 - Phase 1: Backend changes
 - Phase 2: Frontend changes
-- Phase 3: Unit tests and polish
 
 ### 15. Sections not from the Template file
 
@@ -179,19 +180,3 @@
    - File paths should be surrounded by backticks `` ` `` for clarity
 4. **Indicator**: Indicate [New], [Update], or [Delete] for each task
 5. **Task details** (optional): Task details like method names, properties, routes, etc. should be in indented bullets below the main task line
-
----
-
-## Task Structure Best Practices
-
-### Phased Approach
-
-- Phase 1: Backend changes
-- Phase 2: Frontend changes
-- Phase 3: Unit tests and polish
-
-### Descriptive Task Names
-
-- Include what is being changed and where
-- Include key method/property names
-- Include file paths for new files
