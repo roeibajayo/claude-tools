@@ -12,21 +12,31 @@ Facilitate a structured round table discussion among diverse expert teams to col
 **NOTE**: The user input provides the topic for discussion, not decisions or dedicated solutions. The goal is to explore ideas, clarify requirements, and reach a consensus on the best path forward.
 **IMPORTANT**: DO NOT discuss about the current the project details or information that already known like target audience or what technologies are used. Focus only on the user input topic.
 
+## Instructions
+
+1. Think step-by-step about each phase and participant contribution
+2. Each team contributed at least once per phase
+3. Between each phase, let the user to intervene if they want to adjust the topic or add clarifications
+4. When all phases are completed, save all phases as markdown in `round-tables/<name>.md`
+
+## Phases Flow
+
+1. Introduction
+2. Specification
+3. Ask user for agreements or clarifications
+4. Open Discussion
+5. Ask user for agreements or clarifications
+6. Decision Making
+7. Ask user for agreements or clarifications
+8. Summary
+
 ## Moderator
 
 - Plays user's role
 - The moderator is the Product Manager
 - Moderator is the only one who can take decisions
 
-## Phases
-
-1. Introduction
-2. Specification
-3. Open Discussion
-4. Decision Making
-5. Summary
-
-## Phase 1: Introduction
+### Introduction Phase
 
 Moderator presents:
 
@@ -34,30 +44,30 @@ Moderator presents:
 - Implementation value
 - Desired outcome
 
-## Phase 2: Specification
+### Specification Phase
 
 **ALL** participants ask moderator to clarify specific aspects.
 
-### Quality Criteria
+#### Quality Criteria
 
 - No implementation details (languages, frameworks, APIs)
 - Focused on user value and business needs
 - Clear for non-technical stakeholders
 
-### Completeness Criteria
+#### Completeness Criteria
 
 - Measurable, technology-agnostic success criteria
 - All acceptance scenarios and edge cases defined
 - Scope clearly bounded
 - Dependencies and assumptions identified
 
-### Readiness Criteria
+#### Readiness Criteria
 
 - All functional requirements have acceptance criteria
 - User scenarios cover primary flows
 - No implementation details in specification
 
-## Phase 3: Open Discussion
+### Open Discussion Phase
 
 **ALL** participants **MUST**:
 
@@ -68,7 +78,7 @@ Moderator presents:
 - Challenge ideas as skeptics to identify flaws
 - Moderator **MUST** use "say the opposite" technique to provoke deeper thinking
 
-## Phase 4: Decision Making
+### Decision Making Phase
 
 Moderator leads decision-making by:
 
@@ -76,7 +86,7 @@ Moderator leads decision-making by:
 - Discussing trade-offs, risks, and benefits
 - Discussing about **ALL** proposed ideas and expert opinions
 
-## Phase 5: Summary
+### Summary Phase
 
 Moderator summarizes the discussion, group by:
 
@@ -87,7 +97,7 @@ Moderator summarizes the discussion, group by:
 
 **Only the moderator can write the summary.**
 
-## Output Format
+### Output Format
 
 Markdown document of 3000 words, structured as follows:
 
@@ -95,15 +105,15 @@ Markdown document of 3000 words, structured as follows:
 2. **Transcript**: Full protocol with team contributions
 3. **Actionable Recommendations**: Numbered steps based on consensus
 
-### Transcript Format
+#### Transcript Format
 
 - Mark each contribution with team name only
 - Participants speak in turns
 - Each turn: 1-3 focused points, not final answers
 
-## Participant Teams
+### Participant Teams
 
-### 1. UX/UI Designers
+#### 1. UX/UI Designers
 
 This team **MUST** quick explain concepts clearly for non-experts.
 Use examples from famous design patterns or concepts.
@@ -114,13 +124,13 @@ Focus on:
 - Usability and accessibility
 - User journey and interaction flows
 
-### 2. Developers
+#### 2. Developers
 
 - Technical considerations and challenges
 - Maintainability, scalability, performance
 - Quality assurance strategies
 
-### 3. Behavioral Economics Professors
+#### 3. Behavioral Economics Professors
 
 This team **MUST** quick explain concepts clearly for non-experts.
 Use examples from famous experiments and studies.
@@ -131,19 +141,19 @@ Focus on:
 - User behavior nudges and incentives
 - Psychological barriers to adoption
 
-### 4. Ideation Specialists
+#### 4. Ideation Specialists
 
 - Alternative approaches and perspectives
 - Challenge conventional thinking
 - MVP approach and rapid prototyping
 
-### 5. Product Specialists
+#### 5. Product Specialists
 
 - Market insights from similar products
 - Competitive advantages
 - Feature comparisons
 
-## Template
+## Markdown Template
 
 <template>
 # Round Table Discussion
@@ -182,10 +192,3 @@ Focus on:
 
 <!--Numbered list-->
 </template>
-
-## Checklist
-
-- [ ] Think step-by-step about each phase and participant contribution
-- [ ] All phases completed
-- [ ] Each team contributed at least once per phase
-- [ ] Save as markdown in `round-tables/<name>.md`
