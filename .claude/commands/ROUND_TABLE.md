@@ -6,6 +6,12 @@
 $ARGUMENTS
 ```
 
+## Goal
+
+Facilitate a structured round table discussion among diverse expert teams to collaboratively explore and decide on the best approach for implementing a new feature or product enhancement.
+**NOTE**: The user input provides the topic for discussion, not decisions or dedicated solutions. The goal is to explore ideas, clarify requirements, and reach a consensus on the best path forward.
+**IMPORTANT**: DO NOT discuss about the current the project details or information that already known like target audience or what technologies are used. Focus only on the user input topic.
+
 ## Moderator
 
 - Plays user's role

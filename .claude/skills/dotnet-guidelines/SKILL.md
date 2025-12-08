@@ -1,8 +1,7 @@
 ---
 name: dotnet-guidelines
-description:
-  dotnet coding guidelines and best practices. MUST follow these rules.
-  Use when reviewing or writing .NET code or tasks.
+description: C# coding guidelines and best practices. MUST follow these rules.
+  Use when reviewing/writing C# code or dotnet tasks.
 ---
 
 # IMPORTANT Server Guidelines
@@ -26,6 +25,7 @@ description:
 - ALWAYS use `IMemoryCore` for time-based in-memory caching, NEVER use `IMemoryCache`.
 - ALWAYS use Data Transfer Objects (DTO) for API communication, validated with attributes.
 - ALWAYS use `x` as a parameter name in lambdas and anonymous functions.
+- NEVER use try-catch blocks solely to log and rethrow exceptions.
 - If any backend changes are made, run `dotnet build` in the root and ensure no build errors for the entire solution.
 
 ## Code Organization Principles
