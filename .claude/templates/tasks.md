@@ -2,20 +2,21 @@
 description: Task list template for feature implementation.
 ---
 
-# Tasks: [FEATURE NAME]
+# Tasks: [FEATURE NAME] - Phase [N]
 
 <!--
   IMPORTANT: The tasks below are SAMPLE TASKS for illustration purposes only.
 
   - You MUST replace these with actual tasks
-  - Delete component sections (Models, DTOs, etc.) that aren't needed for a project
+  - Delete component sections (Models, DTOs, etc.) that aren't needed for this phase
+  - Each phase file contains tasks for ONE project only
 
-  DO NOT keep these sample tasks in the generated tasks.md file.
+  DO NOT keep these sample tasks in the generated task file.
 !-->
 
-## Feature Overview
+## Phase Overview
 
-<!-- Short description of the feature to be implemented, max 2 lines -->
+<!-- Short description of the tasks to be implemented, max 2 lines -->
 
 ### [Flow]
 
@@ -33,7 +34,7 @@ description: Task list template for feature implementation.
   5. Call `SendWelcomeEmail` endpoint to send welcome email
 -->
 
-## Phase 1: [Project Title] (P1)
+## Tasks
 
 Load skills using Skill tool: <!-- DELETE this line if not applicable -->
 
@@ -111,9 +112,3 @@ Load guidelines: <!-- DELETE this line if not applicable -->
 - [ ] Full frontend checks: `cd src/client && npx tsc --noEmit --skipLibCheck --project tsconfig.app.json && npx eslint .`
 - [ ] Validate all unit tests pass
 - [ ] Format files: `cd src/client && npx prettier <files> --write`
-
----
-
-<!-- Copy phase template above to add more phases -->
-
----

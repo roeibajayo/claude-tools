@@ -5,19 +5,23 @@
 ### Task Organization
 
 - Tasks grouped by Project (e.g., Frontend, Backend Presentation, Backend Logic)
-- Each project in its own phase
-- NEVER mix projects in a single phase
-- DO NOT separate phases for single project
-- Within each project, group tasks by component type **AS IN THE TEMPLATE**
+- **Each project gets its own phase FILE** (e.g., `tasks-1.md`, `tasks-2.md`)
+- NEVER mix projects in a single phase file
+- Within each project file, group tasks by component type **AS IN THE TEMPLATE**
 
-## Output file guidelines
+## Output File Structure
+
+- **File naming**: `temp-spec/tasks-{N}.md` where N is the phase number (1, 2, 3...)
+- **Example**: Backend Logic in `tasks-1.md`, Frontend in `tasks-2.md`
+- Each file is self-contained with Phase Overview, Flows, and Tasks sections
+
+## Task Guidelines
 
 - Task must be specific enough that an LLM can complete it without additional context
 - Task NEVER includes Code snippets or line numbers
 - Every task MUST meet existing project conventions for naming, structure, imports
 - Each task should be a single, atomic action
-- Project-specific phases (P1, P2, P3...)
-- Each project includes implementation tasks only
+- Each project/phase file includes implementation tasks only
 - Use checkboxes for trackability
 - Indicate [New], [Update], or [Delete] for each task
 

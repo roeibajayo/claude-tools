@@ -1,13 +1,14 @@
 ---
-description: Review tasks.md file.
+description: Review phase task files.
 ---
 
 # Tasks review
 
 ## Command Checklist
 
-- [ ] Ensure `temp-spec/tasks.md` is loaded to context, if not exists then STOP and suggest running `/spec:tasks` first
-- [ ] Ensure **ALL** methods/endpoints/hooks etc mentioned in `tasks.md` actually exist in the codebase
+- [ ] Find all phase task files (`temp-spec/tasks-*.md`, ignore `temp-spec/tasks-{N}-completed.md`). If none exist, STOP and suggest running `/spec:tasks` first.
+- [ ] Load all phase task files to context.
+- [ ] Ensure **ALL** methods/endpoints/hooks etc mentioned in task files actually exist in the codebase
 - [ ] Ensure **ALL** tasks meet existing project conventions for naming, structure, imports - update tasks accordingly
 - [ ] Review every task for new Component or Service to detect and reuse common patterns across files, if found - update tasks accordingly
 - [ ] Think for new Components and Services tasks to detect similar existing components, if found - update tasks accordingly to extend/reuse them
