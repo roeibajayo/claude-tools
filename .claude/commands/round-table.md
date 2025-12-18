@@ -14,10 +14,12 @@ Facilitate a structured round table discussion among diverse expert teams to col
 
 ## Instructions
 
-1. Think step-by-step about each phase and participant contribution
-2. Each team contributed at least once per phase
-3. Between each phase, let the user to intervene if they want to adjust the topic or add clarifications
-4. When all phases are completed, save all phases as markdown in `round-tables/<name>.md`
+1. Extract the topic from user input
+2. Extract the preferred output language from user input (default is the same as user input)
+3. Think step-by-step about each phase and participant contribution
+4. Each team contributed at least once per phase
+5. Between each phase, let the user to intervene if they want to adjust the topic or add clarifications
+6. When all phases are completed, save all phases as markdown in `round-tables/<name>.md`
 
 ## Phases Flow
 
