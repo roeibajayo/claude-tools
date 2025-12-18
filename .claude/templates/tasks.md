@@ -2,17 +2,56 @@
 description: Task list template for feature implementation.
 ---
 
-# Tasks: [FEATURE NAME] - Phase [N]
-
 <!--
   IMPORTANT: The tasks below are SAMPLE TASKS for illustration purposes only.
 
   - You MUST replace these with actual tasks
   - Delete component sections (Models, DTOs, etc.) that aren't needed for this phase
-  - Each phase file contains tasks for ONE project only
+  - Each phase file contains tasks for ONE project only (except Phase 1 and Last Phase)
 
   DO NOT keep these sample tasks in the generated task file.
+
+  PHASE TYPES:
+  - Init Phase (Shared Models): Use "Shared Models Template" section below → `tasks-init.md`
+  - Middle Phases (Parallel): Use "Parallel Phase Template" section below → `tasks-1.md`, `tasks-2.md`, etc.
+  - Polish Phase: Use "Polish Phase Template" section below → `tasks-polish.md`
 !-->
+
+---
+
+# Shared Models Template (Init Phase)
+
+# Tasks: [FEATURE NAME] - Init (Shared Models)
+
+## Phase Overview
+
+<!-- Shared DTOs/models between server and client for endpoint communication -->
+
+## Tasks
+
+Load skills using Skill tool: <!-- DELETE this line if not applicable -->
+
+- `[Skill]` <!-- repeat as needed -->
+
+Load guidelines: <!-- DELETE this line if not applicable -->
+
+- `path/to/guideline.md` <!-- repeat as needed -->
+
+### Request/Response DTOs (Server)
+
+- [ ] `[Dto]` in `path/to/[Dto].cs` [New/Update]
+  - [prop1]: [prop-type] <!-- repeat as needed -->
+
+### TypeScript Types (Client)
+
+- [ ] `[TypeName]` in `path/to/types.ts` [New/Update]
+  - [prop1]: [prop-type] <!-- repeat as needed -->
+
+---
+
+# Parallel Phase Template (Middle Phases)
+
+# Tasks: [FEATURE NAME] - Phase [N] ([Project Name])
 
 ## Phase Overview
 
@@ -58,14 +97,14 @@ Load guidelines: <!-- DELETE this line if not applicable -->
 
 - [ ] `[Endpoint]` in `path/to/[Endpoint].cs` [New/Update]
   - Route: [HTTPMethod] `[resource-path]`
-  - Request: [RequestDto] <!-- if no DTO - replace RequestDto with request properties -->
-  - Response: [ResponseDto] <!-- if no DTO - replace ResponseDto with response properties -->
+  - Request: [RequestDto] <!-- reference DTO from Init Phase -->
+  - Response: [ResponseDto] <!-- reference DTO from Init Phase -->
   - Calls [Service].[Method]([param]) <!-- if applicable, repeat as needed -->
   - Used by: `[Page/Component]` <!-- if applicable, repeat as needed -->
 
-### Models / DTOs / Entities
+### Database Entities
 
-- [ ] `[Model]` in `path/to/[Model].cs` [New/Update]
+- [ ] `[Entity]` in `path/to/[Entity].cs` [New/Update]
   - Properties: [prop1], [prop2] <!-- repeat as needed -->
 
 ### [Page] (Frontend)
@@ -89,26 +128,42 @@ Load guidelines: <!-- DELETE this line if not applicable -->
 - [ ] `use[Hook]` in `path/to/[Hook].ts` [New/Update]
   - Returns { [state1], [method1] }
 
-### Other Tasks <!-- project file, docs, scripts, configurations etc.. -->
-
-- [ ] `[Entity]` in `path/to/[Entity].cs` [New/Update] <!-- repeat as needed -->
-
-### Database Migration <!-- if applicable -->
-
-- [ ] `[Table]` in `path/to/[Table].cs` [New/Update/Remove]
-  - Columns: [Column1], [Column2] <!-- repeat as needed -->
-- [ ] Create database migration using `dotnet ef migrations add [MigrationName]`
-
 ### Unit Tests
 
 - [ ] `[Service]` in `path/to/[Service].cs` [New/Update]
   - [TestMethod] <!-- only unit test name, no additional context or info. repeat as needed -->
 
-### Polish and Finalization <!-- examples only, adjust as needed -->
+### Other Tasks <!-- project file, docs, scripts, configurations etc.. -->
 
-- [ ] Refactor React Components using `react-page-refactor` Skill
-- [ ] Refactor .NET Services and Managers using `dotnet-refactor` Skill
+- [ ] `[Entity]` in `path/to/[Entity].cs` [New/Update] <!-- repeat as needed -->
+
+---
+
+# Polish Phase Template
+
+# Tasks: [FEATURE NAME] - Polish & Migrations
+
+## Phase Overview
+
+Final phase: database migrations, build validation, and code quality checks.
+
+## Tasks
+
+### Database Migration
+
+- [ ] `[Table]` in `path/to/[Table].cs` [New/Update/Remove]
+  - Columns: [Column1], [Column2] <!-- repeat as needed -->
+- [ ] Create database migration using `dotnet ef migrations add [MigrationName]`
+
+### Build Validation
+
 - [ ] Full backend build: `dotnet build`
 - [ ] Full frontend checks: `cd src/client && npx tsc --noEmit --skipLibCheck --project tsconfig.app.json && npx eslint .`
+
+### Tests Validation
+
 - [ ] Validate all unit tests pass
+
+### Code Formatting
+
 - [ ] Format files: `cd src/client && npx prettier <files> --write`
