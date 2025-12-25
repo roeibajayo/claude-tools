@@ -70,7 +70,7 @@ When implementing tasks within a single phase file, **parallelize tasks** when p
 ## Progress Tracking and Reporting Guidelines
 
 - Parallelize tasks when they modify different files and have no dependencies on incomplete tasks
-- After completing each task, update the phase file to mark it as completed `[X]`
+- **CRITICAL: After completing EACH task, IMMEDIATELY update the phase file to mark it as completed `[X]`** - do not batch updates
 - You are **NOT ALLOWED TO CHANGE ANYTHING** in phase files except marking tasks as completed
 - Rename phase files to `temp-spec/tasks-{N}-completed.md` after all tasks are done
 - Do NOT report any progress, like: "Let me ..", "Now I will ...", etc.
