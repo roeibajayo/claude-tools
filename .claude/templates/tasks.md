@@ -29,20 +29,16 @@ description: Task list template for feature implementation.
 
 ## Tasks
 
-Load skills using Skill tool: <!-- DELETE this line if not applicable -->
-
-- `[Skill]` <!-- repeat as needed -->
-
-Load guidelines: <!-- DELETE this line if not applicable -->
-
-- `path/to/guideline.md` <!-- repeat as needed -->
-
 ### Request/Response DTOs (Server)
+
+**Naming Convention:** <!-- CamelCase, PascalCase, etc. -->
 
 - [ ] `[Dto]` in `path/to/[Dto].cs` [New/Update]
   - [prop1]: [prop-type] <!-- repeat as needed -->
 
 ### TypeScript Types (Client)
+
+**Naming Convention:** <!-- CamelCase, PascalCase, etc. -->
 
 - [ ] `[TypeName]` in `path/to/types.ts` [New/Update]
   - [prop1]: [prop-type] <!-- repeat as needed -->
@@ -74,16 +70,6 @@ Load guidelines: <!-- DELETE this line if not applicable -->
 -->
 
 ## Tasks
-
-Load skills using Skill tool: <!-- DELETE this line if not applicable -->
-
-- `[Skill]` <!-- repeat as needed -->
-
-Load guidelines: <!-- DELETE this line if not applicable -->
-
-- `path/to/guideline.md` <!-- repeat as needed -->
-
-<!-- DELETE sections below that aren't needed for this project -->
 
 ### [Service] / [Repository] / [Manager]
 

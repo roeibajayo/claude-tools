@@ -29,28 +29,33 @@ Task files are organized by phase with specific execution order:
 - [ ] If user input specifies a phase (e.g., "init", "p1", "polish"), implement only that phase file directly.
 - [ ] If no phase specified, execute in this order (skip phases that don't exist):
   1. **Init phase** (if exists): Implement directly (shared models must exist before other phases)
-  2. **Middle phases**: Launch parallel agents using the Task tool - one agent per phase file, ALL in a single message
-  3. **Polish phase** (if exists): Implement directly after all middle phase agents complete (migrations & validation)
+  2. **Middle phases**: Launch parallel CLI processes using `claude -p`
+  3. **Polish phase** (if exists): Implement directly after all middle phase processes complete (migrations & validation)
 - [ ] Ensure ALL tasks completed and marked `[X]` in the processed phase file(s).
 
 ## Parallel Execution for Middle Phases (CRITICAL)
 
-When executing middle phases (`tasks-1.md`, `tasks-2.md`, etc.), you **MUST**:
+When executing middle phases (`tasks-1.md`, `tasks-2.md`, etc.), use separate CLI processes:
 
-1. Use the `Task` tool with `subagent_type="general-purpose"` for each middle phase
-2. Launch ALL middle phase agents in a **single message** with multiple Task tool calls
-3. Each agent prompt must include:
-   - The phase file path to implement (e.g., `temp-spec/tasks-1.md`)
-   - Instruction to load relevant guidelines and skills
-   - Instruction to implement all tasks and mark them `[X]`
-   - Instruction to rename file to `tasks-{N}-completed.md` when done
-4. Wait for all agents to complete before proceeding to the polish phase
+1. Invoke **multiple Bash tools simultaneously** - one for each phase file
+2. Use `run_in_background: true` to avoid timeout (default is 2 min, max 10 min)
+3. Each process starts with **fresh context** (no inheritance, no overflow)
+4. Use `TaskOutput` to wait for all background processes to complete
 
-Example agent prompt:
+**Command per phase:**
+
+```bash
+claude -p "/spec:implement p{N}" --model "sonnet" --permission-mode acceptEdits
+```
+
+**Example - 2 middle phases = invoke 2 Bash tools simultaneously with `run_in_background: true`:**
 
 ```
-Implement all tasks in `temp-spec/tasks-1.md`, following Progress Tracking Guidelines: implement sequentially, mark each task [X], rename to tasks-1-completed.md when done
+Bash tool (background): claude -p "/spec:implement p1" --model "sonnet" --permission-mode acceptEdits
+Bash tool (background): claude -p "/spec:implement p2" --model "sonnet" --permission-mode acceptEdits
 ```
+
+Then use `TaskOutput` with each task ID to wait for completion.
 
 ## Task Parallelization Within Phases
 
