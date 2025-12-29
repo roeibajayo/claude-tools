@@ -27,7 +27,8 @@ Task files are organized by phase with specific execution order:
 - [ ] Find all phase task files (`temp-spec/tasks-*.md`, ignore `temp-spec/tasks-{N}-completed.md`). If none exist, STOP and suggest running `/spec:tasks` first.
 - [ ] Identify phase files: Init phase (`tasks-init.md`), Middle phases (`tasks-{N}.md`), Polish phase (`tasks-polish.md`).
 - [ ] If user input specifies a phase (e.g., "init", "p1", "polish"), implement only that phase file directly.
-- [ ] If no phase specified, execute in this order (skip phases that don't exist):
+- [ ] **Single phase optimization**: If only ONE phase file exists (e.g., only `tasks-1.md`), implement it directly without spawning any background agents or CLI processes.
+- [ ] If no phase specified and multiple phases exist, execute in this order (skip phases that don't exist):
   1. **Init phase** (if exists): Implement directly (shared models must exist before other phases)
   2. **Middle phases**: Launch parallel CLI processes using `claude -p`
   3. **Polish phase** (if exists): Implement directly after all middle phase processes complete (migrations & validation)
