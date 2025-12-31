@@ -22,8 +22,6 @@ Task files are organized by phase with specific execution order:
 
 ## Command Checklist
 
-- [ ] Search (`*/guidelines/*.md`) and load all general (server and client) or relevant guidelines markdown files to context, including `.claude/guidelines/GENERAL.md`.
-- [ ] Load guidelines skills to context, specifically `dotnet-guidelines` and `react-guidelines`, if relevant to the tasks.
 - [ ] Find all phase task files (`temp-spec/tasks-*.md`, ignore `temp-spec/tasks-{N}-completed.md`). If none exist, STOP and suggest running `/spec:tasks` first.
 - [ ] Identify phase files: Init phase (`tasks-init.md`), Middle phases (`tasks-{N}.md`), Polish phase (`tasks-polish.md`).
 - [ ] If user input specifies a phase (e.g., "init", "p1", "polish"), implement only that phase file directly.
