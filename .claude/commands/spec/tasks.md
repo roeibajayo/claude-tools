@@ -28,6 +28,8 @@ You **MUST** consider the user input before proceeding (if not empty).
 - **Middle phases**: `temp-spec/tasks-1.md`, `temp-spec/tasks-2.md`, etc.
 - **Polish phase** (optional): `temp-spec/tasks-polish.md` (migrations, validation) - only if feature needs migrations or validation
 
+**Single Phase Optimization**: If the feature only requires ONE phase (e.g., a simple single-project feature), create just `tasks-1.md` with all tasks using the full template structure. Do NOT split into init/middle/polish phases. The implementation will execute it directly without spawning background agents.
+
 ### Phase Order (CRITICAL)
 
 Phases **MUST** follow this specific order:

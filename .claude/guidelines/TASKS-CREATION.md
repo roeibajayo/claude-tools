@@ -157,6 +157,8 @@
 - Phase 1: Backend changes
 - Phase 2: Frontend changes
 
+**Single Phase Exception**: For simple features that only affect one project, create a single `tasks-1.md` file with all tasks using the full template structure. Do NOT split into init/middle/polish phases. This avoids unnecessary complexity and allows direct execution without spawning background agents.
+
 ### 15. Sections not from the Template file
 
 **Bad**: Including sections that are not mentioned in the template file.
